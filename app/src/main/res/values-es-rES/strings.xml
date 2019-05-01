@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SintoMedic</string>
+    <string name="title_activity_login">Inicio de sesión</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">ENTRAR</string>
+    <string name="action_sign_in_short">ENTRAR</string>
+    <string name="welcome">"Bienevnido !"</string>
+    <string name="invalid_username">Nombre de usuario no valido</string>
+    <string name="invalid_password">Contraseña inválida</string>
+    <string name="login_failed">"Login fallido"</string>
+    <string name="pass_lost">Recordar contraseña</string>
+    <string name="register_button">Regístrate aquí</string>
+    <string name="prompt_user">Usuario</string>
+    <string name="name">Nombre</string>
+    <string name="centro_trabajo">Centro de trabajo</string>
+</resources>

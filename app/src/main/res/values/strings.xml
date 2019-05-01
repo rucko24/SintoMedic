@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SintoMedic</string>
+    <string name="title_activity_login">Inicio de sesión</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">"SIGN IN "</string>
+    <string name="action_sign_in_short">SIGN</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="pass_lost">Remember password</string>
+    <string name="register_button">Register here</string>
+    <string name="prompt_user">User</string>
+    <string name="name">Name</string>
+    <string name="Surnames">Surname</string>
+    <string name="insurance_company">Insurance company</string>
+    <string name="identity_card">DNI/NIE</string>
+</resources>
