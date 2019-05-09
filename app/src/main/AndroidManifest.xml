@@ -17,6 +17,8 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login"></activity>
+
+        <!--MAIN ACTIVITY-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        //2ª actividad
+        <!--2ª ACTIVIDAD-->
         <activity android:name=".PacienteRegisterActivity"
             android:label = "Registro Pacientes"
             android:parentActivityName=".ui.login.LoginActivity">
@@ -33,7 +35,8 @@
                 android:value=
                     "com.example.sintomedic.ui.login.LoginActivity"/>
         </activity>
-        // actividad registro doctores
+
+        <!--actividad registro doctores-->
 
         <activity android:name=".DoctorRegisterActivity"
             android:label = "Registro Doctores"
