@@ -17,7 +17,7 @@
         <activity
             android:name=".MainActivityPaciente"
             android:label="@string/title_activity_main_paciente"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivityDoctor"
             android:label="@string/title_activity_main_doctor"

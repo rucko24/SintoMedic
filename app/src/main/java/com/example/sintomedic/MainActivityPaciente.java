@@ -7,7 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class MainActivityPaciente extends AppCompatActivity {
+public class MainActivityPaciente extends AppCompatActivity implements SintomaFragment.FragmentCallback
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
