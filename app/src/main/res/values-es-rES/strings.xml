@@ -15,4 +15,7 @@
     <string name="prompt_user">Usuario</string>
     <string name="name">Nombre</string>
     <string name="centro_trabajo">Centro de trabajo</string>
+    <string name="insurance_company">Comañia aseguradora</string>
+    <string name="identity_card">DNI/NIE</string>
+    <string name="Surnames">Apellidos</string>
 </resources>

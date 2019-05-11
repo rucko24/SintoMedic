@@ -16,4 +16,5 @@
     <string name="Surnames">Surname</string>
     <string name="insurance_company">Insurance company</string>
     <string name="identity_card">DNI/NIE</string>
+    <string name="centro_trabajo">Job center</string>
 </resources>

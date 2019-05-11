@@ -150,12 +150,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // actividad de registro de doctor
-    public void launchDoctorRegisterActivity(View view) {
+    public void DoctorRegisterActivity(View view) {
         Intent intentDoctor = new Intent(this, DoctorRegisterActivity.class);
         //lanzar actividad esperando una respuesta
         startActivityForResult(intentDoctor,TXT_REQ2);
 
     }
+
 
 
 }
