@@ -17,4 +17,11 @@
     <string name="insurance_company">Insurance company</string>
     <string name="identity_card">DNI/NIE</string>
     <string name="centro_trabajo">Job center</string>
+    <string name="place">City</string>
+    <string name="mail">Mail</string>
+    <string name="license_number">License number</string>
+    <string name="phone">Phone</string>
+    <string name="title_activity_main_doctor">MainActivityDoctor</string>
+    <string name="title_activity_main_paciente">MainActivityPaciente</string>
+    <string name="sypmton">Add sympton</string>
 </resources>

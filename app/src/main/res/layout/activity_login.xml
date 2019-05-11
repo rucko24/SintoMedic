@@ -62,7 +62,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:enabled="false"
-        android:onClick="RegisterPacienteActivity"
+        android:onClick="DoctorRegisterActivity"
         android:text="@string/action_sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +143,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
         app:layout_constraintVertical_bias="0.55"
-         />
+        />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -153,3 +153,4 @@
         app:layout_constraintGuide_percent="0.5" />
 
 </android.support.constraint.ConstraintLayout>
+
