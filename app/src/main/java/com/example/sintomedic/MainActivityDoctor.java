@@ -4,10 +4,17 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class MainActivityDoctor extends AppCompatActivity {
+import java.util.List;
+
+import Controllers.Controller;
+
+public class MainActivityDoctor extends AppCompatActivity implements Controller.ServerResponse {
+    DoctorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +23,25 @@ public class MainActivityDoctor extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Controller controllerDoctor = new Controller(this);
+        controllerDoctor.start();
+
+        adapter = new DoctorAdapter(this);
+
+        RecyclerView recycler = findViewById(R.id.recyclerListaPacientes);
+        recycler.setAdapter(adapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recycler.setLayoutManager(layoutManager);
+
+
+
+
+
     }
 
+    @Override
+    public void onResponse(List<Paciente> movies) {
+
+    }
 }
