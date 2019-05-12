@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.List;
-
+import com.bumptech.glide.Glide;
 
 public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder> {
 
@@ -35,6 +35,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
     public class PacienteViewHolder extends RecyclerView.ViewHolder {
 
         TextView txtName;
+        TextView txtSurname;
         ImageView imgThumbnail;
 
 
@@ -42,8 +43,9 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
 
         public PacienteViewHolder(View view){
             super(view);
-            txtName = view.findViewById(R.id.txtName);
-            imgThumbnail = view.findViewById(R.id.imgThumbnail);
+            txtName = view.findViewById(R.id.txt_nombre_paciente_item);
+            txtSurname = view.findViewById(R.id.txt_apellido_paciente_item);
+            imgThumbnail = view.findViewById(R.id.imageView_paciente);
 
 
             // listener al apreter nombre se cambiará a otro
@@ -78,9 +80,9 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
     @Override
     public void onBindViewHolder(@NonNull PacienteViewHolder vh, int i) {
         Paciente paciente = pacientesList.get(i);
-        vh.txtName.setText(paciente.getName());
+        vh.txtName.setText(paciente.getNombre());
         GlideApp.with(context)
-                .load(paciente.getThumbnail())
+                .load(paciente.getFotoPaciente())
                 .into(vh.imgThumbnail);
     }
 

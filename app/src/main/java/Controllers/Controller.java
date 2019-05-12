@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Controller implements Callback<List<Paciente>> {
 
-    private static final String BASE_URL = "http://192.168.1.165:8080/";
+    private static final String BASE_URL = "http://84.123.198.249:8080/";//mi IP casa + pto XAMPP
     private ServerResponse handler;
 
 
@@ -45,7 +45,7 @@ public class Controller implements Callback<List<Paciente>> {
         if(response.isSuccessful()){
             List<Paciente> pacientes = response.body();
             if(pacientes.size()>0){
-                Log.d("Controller", pacientes.get(0).getName());
+                Log.d("Controller", pacientes.get(0).getNombre());
                 handler.onResponse(pacientes);
             }
         }else{

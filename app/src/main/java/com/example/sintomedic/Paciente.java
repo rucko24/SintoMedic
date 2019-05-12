@@ -1,5 +1,7 @@
 package com.example.sintomedic;
 
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,10 @@ public class Paciente {
     private String  Telefono ;
     private String  Correo ;
 
+
+
+    private ImageView fotoPaciente;
+
     public Paciente(){
         super();
     }
@@ -24,6 +30,13 @@ public class Paciente {
         id=id;
     }
 
+    public ImageView getFotoPaciente() {
+        return fotoPaciente;
+    }
+
+    public void setFotoPaciente(ImageView fotoPaciente) {
+        this.fotoPaciente = fotoPaciente;
+    }
     public String getApellidos() {
         return Apellidos;
     }
