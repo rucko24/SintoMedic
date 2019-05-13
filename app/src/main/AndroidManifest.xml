@@ -31,7 +31,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 2ª registro pacientes -->
+        </activity>
+        <!-- 2ª registro pacientes -->
         <activity
             android:name=".PacienteRegisterActivity"
             android:label="Registro Pacientes"
@@ -39,7 +40,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.sintomedic.ui.login.LoginActivity" />
-        </activity> <!-- actividad registro doctores -->
+        </activity>
+        <!-- actividad registro doctores -->
         <activity
             android:name=".DoctorRegisterActivity"
             android:label="Registro Doctores"

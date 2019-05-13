@@ -2,7 +2,7 @@ package Controllers;
 
 import android.util.Log;
 
-import com.example.sintomedic.ListaPacientesAPI;
+import com.example.sintomedic.API_recyclers.ListaPacientesAPI;
 import com.example.sintomedic.Paciente;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -5,15 +5,22 @@
     <item
         android:id="@+id/app_bar_search"
         android:icon="@drawable/ic_search_black_24dp"
+        android:orderInCategory="10"
         android:title="Bscar paciente por apellidos"
-        app:actionViewClass="android.widget.SearchView" />
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menuitem_addpaciente"
+        android:orderInCategory="20"
         android:title="@string/add_patient" />
     <item
         android:id="@+id/item_modify_doctor_data"
+        android:orderInCategory="30"
         android:title="Modificar datos personales" />
     <item
         android:id="@+id/item_close_session"
-        android:title="Cerrar sesión" />
+        android:icon="@drawable/ic_close_black_24dp"
+        android:orderInCategory="40"
+        android:title="Cerrar sesión"
+        app:showAsAction="always" />
 </menu>

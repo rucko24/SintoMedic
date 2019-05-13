@@ -1,22 +1,25 @@
-package com.example.sintomedic;
+package com.example.sintomedic.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.LinkedList;
 import java.util.List;
-import com.bumptech.glide.Glide;
+
+import com.example.sintomedic.GlideApp;
+import com.example.sintomedic.MainActivityDoctor;
+import com.example.sintomedic.Paciente;
+import com.example.sintomedic.R;
+import com.example.sintomedic.ShowFichaPacienteActivity;
+
+import static android.support.v4.content.ContextCompat.startActivity;
 
 public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder> {
 
@@ -33,33 +36,31 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
 
 
     public class PacienteViewHolder extends RecyclerView.ViewHolder {
-
+        ImageView imgThumbnail;
         TextView txtName;
         TextView txtSurname;
-        ImageView imgThumbnail;
-
-
+        Button txtFicha;
 
 
         public PacienteViewHolder(View view){
             super(view);
+            imgThumbnail = view.findViewById(R.id.imageView_paciente);
             txtName = view.findViewById(R.id.txt_nombre_paciente_item);
             txtSurname = view.findViewById(R.id.txt_apellido_paciente_item);
-            imgThumbnail = view.findViewById(R.id.imageView_paciente);
-
-
-            // listener al apreter nombre se cambiará a otro
-            txtName.setOnClickListener(new View.OnClickListener() {
+            txtFicha=view.findViewById(R.id.button_detalles_paciente);
+            /*Al apretar en Ver detalle sedl recycler view que abra otra activity*/
+            txtFicha.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Paciente paciente = pacientesList.get(getAdapterPosition());
-                    // en lugar de toast que envie a otra activity
+                    /*
+                    Intent myIntent = new Intent(this, ShowFichaPacienteActivity.class);
+                    startActivity(myIntent);*/
+                    /*
+                    if(context instanceof MainActivityDoctor){
+                        ((MainActivityDoctor)context).ShowFichaPacienteActivity();*/
 
-                    /*Toast.makeText(
-                            context,
-                            paciente.getName(),
-                            Toast.LENGTH_LONG).show();*/
                 }
+
             });
         }
     }

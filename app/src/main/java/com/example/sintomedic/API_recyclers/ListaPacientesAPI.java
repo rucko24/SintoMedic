@@ -1,5 +1,7 @@
-package com.example.sintomedic;
+package com.example.sintomedic.API_recyclers;
 
+
+import com.example.sintomedic.Paciente;
 
 import java.util.List;
 

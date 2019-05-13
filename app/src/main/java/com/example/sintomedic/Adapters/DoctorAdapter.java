@@ -1,10 +1,12 @@
-package com.example.sintomedic;
+package com.example.sintomedic.Adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-class DoctorAdapter extends RecyclerView.Adapter {
+import com.example.sintomedic.MainActivityDoctor;
+
+public  class DoctorAdapter extends RecyclerView.Adapter {
     public DoctorAdapter(MainActivityDoctor mainActivityDoctor) {
     }
 
