@@ -21,8 +21,8 @@
     <string name="mail">Mail</string>
     <string name="license_number">License number</string>
     <string name="phone">Phone</string>
-    <string name="title_activity_main_doctor">MainActivityDoctor</string>
-    <string name="title_activity_main_paciente">MainActivityPaciente</string>
+    <string name="title_activity_main_doctor" translatable="false">MainActivityDoctor</string>
+    <string name="title_activity_main_paciente" translatable="false">MainActivityPaciente</string>
     <string name="sypmton">Add sympton</string>
     <string-array name="spinner_doctores">
         <item>1</item>
@@ -32,5 +32,6 @@
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="add_patient">Add patient</string>
 </resources>

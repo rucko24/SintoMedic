@@ -23,4 +23,5 @@
     <string name="phone">Teléfono</string>
     <string name="license_number">Nº colegiado</string>
     <string name="sypmton">Añadir síntoma</string>
+    <string name="add_patient">Añadir paciente</string>
 </resources>
