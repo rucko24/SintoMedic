@@ -21,7 +21,9 @@ import com.example.sintomedic.ShowFichaPacienteActivity;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 
+
 public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.PacienteViewHolder> {
+
 
     List<Paciente> pacientesList;
     LayoutInflater inflater;
@@ -52,18 +54,17 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
             txtFicha.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*
-                    Intent myIntent = new Intent(this, ShowFichaPacienteActivity.class);
-                    startActivity(myIntent);*/
-                    /*
-                    if(context instanceof MainActivityDoctor){
-                        ((MainActivityDoctor)context).ShowFichaPacienteActivity();*/
-
+                    Intent intent = new Intent (v.getContext(), ShowFichaPacienteActivity.class);
+                    startActivity(intent);
                 }
-
             });
         }
+
+        private void startActivity(Intent intent) {
+        }
     }
+
+
 
     public void setData(List<Paciente> newList){
         pacientesList = newList;
