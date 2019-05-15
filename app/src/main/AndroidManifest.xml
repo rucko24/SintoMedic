@@ -15,8 +15,16 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".MainActivityPaciente"
+            android:label="@string/title_activity_main_paciente"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivityDoctor"
+            android:label="@string/title_activity_main_doctor"
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- LOGIN ACTIVITY -->
+        <activity
             android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" /> <!-- MAIN ACTIVITY -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,28 +32,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        //2ª actividad
-        <activity android:name=".PacienteRegisterActivity"
-            android:label = "Registro Pacientes"
+        <!-- 2ª registro pacientes -->
+        <activity
+            android:name=".PacienteRegisterActivity"
+            android:label="Registro Pacientes"
             android:parentActivityName=".ui.login.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=
-                    "com.example.sintomedic.ui.login.LoginActivity"/>
+                android:value="com.example.sintomedic.ui.login.LoginActivity" />
         </activity>
-        // actividad registro doctores
-
-        <activity android:name=".DoctorRegisterActivity"
-            android:label = "Registro Doctores"
+        <!-- actividad registro doctores -->
+        <activity
+            android:name=".DoctorRegisterActivity"
+            android:label="Registro Doctores"
             android:parentActivityName=".ui.login.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=
-                    "com.example.sintomedic.ui.login.LoginActivity"/>
+                android:value="com.example.sintomedic.ui.login.LoginActivity" />
         </activity>
-
-
-
     </application>
 
 </manifest>

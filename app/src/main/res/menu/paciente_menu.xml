@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_modify_patient_data"
+        android:title="Modificar datos personales" />
+    <item
+        android:id="@+id/item_add_doctor"
+        android:title="Añadir nuevo doctor" />
+    <item
+        android:id="@+id/item_zoom"
+        android:title="Zoom pantalla" />
+    <item
+        android:id="@+id/item_close_patient_session"
+        android:title="Cerrar sesión" />
+</menu>

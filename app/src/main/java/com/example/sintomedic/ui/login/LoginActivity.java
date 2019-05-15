@@ -35,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
      */
     private static final String DUMMY_USER_ID = "0000000000";
     private static final String DUMMY_PASSWORD = "dummy_password";
+    //STRING TIPOS USUARIO
+    private String USER_TYPE_1 = "paciente";
+    private String USER_TYPE_2 = "doctor";
 
     // para los intent:
     public static final int TXT_REQ =1;
@@ -141,6 +144,25 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+
+    //MODIFICACION SERGIO DEL LOGIN ACTIVITY PARA DIRIGIR A UNO U OTRA ACTIVIDAD SEGUN TIPO USER
+
+    /*    Intent intent = null;
+     if(user.equals(USER_TYPE_1)){
+            intent = new Intent(this, PacienteRegisterActivity.class);
+        }else if(user.equals(USER_TYPE_2)){
+            intent = new Intent(this, DoctorRegisterActivity.class);
+        }
+
+     if(intent!=null){
+            startActivity(intent);
+        }
+
+       */
+
+
+
+
     // actividad de registro paciente
     public void PacienteRegisterActivity(View view) {
         Intent intentPaciente = new Intent(this, PacienteRegisterActivity.class);
@@ -150,12 +172,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // actividad de registro de doctor
-    public void launchDoctorRegisterActivity(View view) {
+    public void DoctorRegisterActivity(View view) {
         Intent intentDoctor = new Intent(this, DoctorRegisterActivity.class);
         //lanzar actividad esperando una respuesta
         startActivityForResult(intentDoctor,TXT_REQ2);
 
     }
+
 
 
 }
