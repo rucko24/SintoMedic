@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 
-public class MainActivityPaciente extends AppCompatActivity implements SintomaFragment.FragmentCallback{
+public class MainActivityPaciente extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,6 @@ public class MainActivityPaciente extends AppCompatActivity implements SintomaFr
         return true;
     }
 
-    @Override
-    public void fragmentallback() {
-
-    }
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {

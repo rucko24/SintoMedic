@@ -54,7 +54,18 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
             txtFicha.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent (v.getContext(), ShowFichaPacienteActivity.class);
+                    Intent intent = new Intent (context, ShowFichaPacienteActivity.class);
+                    Paciente paciente = pacientesList.get(getAdapterPosition());
+                    //si quiero poasar paciente entero no puedo pasarlo por el bundle
+                    //implementar parseable
+                    //pasasrlo a json y pasarlo al otro activity con string
+                    //pa ciente to json y luego al reves
+                    // web para consultar para hacer el parceable
+                    //https://coderwall.com/p/vfbing/passing-objects-between-activities-in-android
+
+                    // con json mucho mas facil!! https://sites.google.com/site/gson/gson-user-guide
+                    //objeto a string va en el adapter
+                    // y deserialization va en la otra clase ShowactivityPaciente
                     startActivity(intent);
                 }
             });

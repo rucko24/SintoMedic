@@ -1,4 +1,4 @@
-package Controllers;
+package com.example.sintomedic.Controllers;
 
 import android.util.Log;
 

@@ -11,7 +11,7 @@ import com.example.sintomedic.Adapters.DoctorAdapter;
 
 import java.util.List;
 
-import Controllers.Controller;
+import com.example.sintomedic.Controllers.Controller;
 
 public class MainActivityDoctor extends AppCompatActivity implements Controller.ServerResponse {
     DoctorAdapter adapter;
