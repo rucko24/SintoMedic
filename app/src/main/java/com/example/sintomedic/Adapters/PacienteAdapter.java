@@ -18,6 +18,7 @@ import com.example.sintomedic.MainActivityDoctor;
 import com.example.sintomedic.Paciente;
 import com.example.sintomedic.R;
 import com.example.sintomedic.ShowFichaPacienteActivity;
+import com.google.gson.Gson;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 
@@ -28,6 +29,9 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
     List<Paciente> pacientesList;
     LayoutInflater inflater;
     Context context;
+    Gson gsonPaciente = new Gson();
+
+    String jsonPaciente = gsonPaciente.toJson(pacientesList);
 
     public PacienteAdapter(Context context, List<Paciente> pacientesList){
         this.pacientesList = pacientesList;
@@ -66,6 +70,8 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
                     // con json mucho mas facil!! https://sites.google.com/site/gson/gson-user-guide
                     //objeto a string va en el adapter
                     // y deserialization va en la otra clase ShowactivityPaciente
+
+                    intent.putExtra("jsonPaciente", jsonPaciente);
                     startActivity(intent);
                 }
             });

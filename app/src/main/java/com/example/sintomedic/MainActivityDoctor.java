@@ -11,9 +11,9 @@ import com.example.sintomedic.Adapters.DoctorAdapter;
 
 import java.util.List;
 
-import com.example.sintomedic.Controllers.Controller;
+import com.example.sintomedic.Controllers.ControllerPacientes;
 
-public class MainActivityDoctor extends AppCompatActivity implements Controller.ServerResponse {
+public class MainActivityDoctor extends AppCompatActivity implements ControllerPacientes.ServerResponse {
     DoctorAdapter adapter;
 
     @Override
@@ -23,7 +23,7 @@ public class MainActivityDoctor extends AppCompatActivity implements Controller.
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Controller controllerDoctor = new Controller(this);
+        ControllerPacientes controllerDoctor = new ControllerPacientes(this);
         controllerDoctor.start();
 
         adapter = new DoctorAdapter(this);

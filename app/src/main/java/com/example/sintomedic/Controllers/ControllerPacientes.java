@@ -15,13 +15,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Controller implements Callback<List<Paciente>> {
+public class ControllerPacientes implements Callback<List<Paciente>> {
 
-    private static final String BASE_URL = "http://84.123.198.249:8080/";//mi IP casa + pto XAMPP
+    private static final String BASE_URL = "http://84.123.198.249:8080/";//mi IP casa + pto APiSpring diferente 8080!!!!!
     private ServerResponse handler;
 
 
-    public Controller(ServerResponse handler){
+    public ControllerPacientes(ServerResponse handler){
         this.handler = handler;
     }
 
@@ -45,11 +45,11 @@ public class Controller implements Callback<List<Paciente>> {
         if(response.isSuccessful()){
             List<Paciente> pacientes = response.body();
             if(pacientes.size()>0){
-                Log.d("Controller", pacientes.get(0).getNombre());
+                Log.d("ControllerPacientes", pacientes.get(0).getNombre());
                 handler.onResponse(pacientes);
             }
         }else{
-            Log.d("Controller", response.errorBody().toString());
+            Log.d("ControllerPacientes", response.errorBody().toString());
         }
     }
 
