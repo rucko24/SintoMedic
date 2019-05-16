@@ -12,8 +12,6 @@ public class PacienteRegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_paciente);
-
-
         // Get the intent that launched this activity, and the message in
         // the intent extra.
         Intent intent = getIntent();

@@ -1,7 +1,5 @@
 package com.example.sintomedic;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -9,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Paciente implements Parcelable {
+public class PacienteSinParcelable {
 
     private Long id;
     private String Nombre;
@@ -25,10 +23,10 @@ public class Paciente implements Parcelable {
     private String Tratamiento;
     private ImageView fotoPaciente;
 
-    public Paciente(){
+    public PacienteSinParcelable(){
         super();
     }
-    public Paciente(Long id, String nombre) {
+    public PacienteSinParcelable(Long id, String nombre) {
         super();
         Nombre = nombre;
         id=id;
@@ -136,62 +134,4 @@ public class Paciente implements Parcelable {
     public void setNombre(String nombre) {
         Nombre = nombre;
     }
-
-    protected Paciente(Parcel in) {
-        id = in.readByte() == 0x00 ? null : in.readLong();
-        Nombre = in.readString();
-        Apellidos = in.readString();
-        CompaniaAseguradora = in.readString();
-        DNI_NIE = in.readString();
-        Localidad = in.readString();
-        Telefono = in.readString();
-        Correo = in.readString();
-        long tmpFechaNacimiento = in.readLong();
-        fechaNacimiento = tmpFechaNacimiento != -1 ? new Date(tmpFechaNacimiento) : null;
-        long tmpFecha_consulta_proxima = in.readLong();
-        fecha_consulta_proxima = tmpFecha_consulta_proxima != -1 ? new Date(tmpFecha_consulta_proxima) : null;
-        Enfermedad = in.readString();
-        Tratamiento = in.readString();
-        fotoPaciente = (ImageView) in.readValue(ImageView.class.getClassLoader());
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (id == null) {
-            dest.writeByte((byte) (0x00));
-        } else {
-            dest.writeByte((byte) (0x01));
-            dest.writeLong(id);
-        }
-        dest.writeString(Nombre);
-        dest.writeString(Apellidos);
-        dest.writeString(CompaniaAseguradora);
-        dest.writeString(DNI_NIE);
-        dest.writeString(Localidad);
-        dest.writeString(Telefono);
-        dest.writeString(Correo);
-        dest.writeLong(fechaNacimiento != null ? fechaNacimiento.getTime() : -1L);
-        dest.writeLong(fecha_consulta_proxima != null ? fecha_consulta_proxima.getTime() : -1L);
-        dest.writeString(Enfermedad);
-        dest.writeString(Tratamiento);
-        dest.writeValue(fotoPaciente);
-    }
-
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Paciente> CREATOR = new Parcelable.Creator<Paciente>() {
-        @Override
-        public Paciente createFromParcel(Parcel in) {
-            return new Paciente(in);
-        }
-
-        @Override
-        public Paciente[] newArray(int size) {
-            return new Paciente[size];
-        }
-    };
 }
