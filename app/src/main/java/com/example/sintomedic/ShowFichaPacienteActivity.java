@@ -19,6 +19,7 @@ public class ShowFichaPacienteActivity extends AppCompatActivity {
         //Creamos un nuevo Paciente a partir de json
         Paciente paciente = gson.fromJson(jsonPaciente, Paciente.class);
 
+
     }
 
 
