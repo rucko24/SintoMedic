@@ -31,15 +31,13 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
     Context context;
     Gson gsonPaciente = new Gson();
 
-    String jsonPaciente = gsonPaciente.toJson(pacientesList);
+
 
     public PacienteAdapter(Context context, List<Paciente> pacientesList){
         this.pacientesList = pacientesList;
         inflater = LayoutInflater.from(context);
         this.context = context;
     }
-
-
 
     public class PacienteViewHolder extends RecyclerView.ViewHolder {
         ImageView imgThumbnail;
@@ -70,7 +68,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
                     // con json mucho mas facil!! https://sites.google.com/site/gson/gson-user-guide
                     //objeto a string va en el adapter
                     // y deserialization va en la otra clase ShowactivityPaciente
-
+                    String jsonPaciente = gsonPaciente.toJson(paciente);
                     intent.putExtra("jsonPaciente", jsonPaciente);
                     startActivity(intent);
                 }

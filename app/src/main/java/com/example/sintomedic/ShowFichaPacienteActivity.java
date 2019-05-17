@@ -16,10 +16,9 @@ public class ShowFichaPacienteActivity extends AppCompatActivity {
         String jsonPaciente = intent.getStringExtra("jsonPaciente");
         //Creamos un objeto Gson
 
-
         //Creamos un nuevo Paciente a partir de json
         Paciente paciente = gson.fromJson(jsonPaciente, Paciente.class);
-        //Paciente paciente2=
+
     }
 
 
