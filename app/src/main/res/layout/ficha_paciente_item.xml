@@ -78,7 +78,7 @@
         app:layout_constraintTop_toTopOf="@+id/nombre_ficha_paciente" />
 
     <TextView
-        android:id="@+id/txt__compania_paciente"
+        android:id="@+id/txt_compania_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -111,35 +111,58 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="248dp"
+        android:layout_marginBottom="8dp"
         android:text="Ver síntomas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_tratamiento_paciente" />
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        app:layout_constraintVertical_bias="0.060000002" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="377dp"
-        android:layout_height="226dp"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="198dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tag_tratamiento">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/txt_tratamiento_paciente"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=" El ScrollView junto con un LinearLayout nos permite disponer una cantidad de componentes visuales que superan la cantidad de espacio del visor del celular o tablet. Luego el usuario puede desplazar con el dedo la interfaz creada. Problema:  Disponer un control de tipo ScrollView (que se encuentra en la pestaña Composite). Como veremos automáticamente se crea una componente de tipo LinearLayout y fijemos la propiedad Orientation del LinearLayout con el valor vertical:"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="30dp" />
+        </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/txt_tratamiento_paciente"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="@+id/scrollView2" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
+
+    <Button
+        android:id="@+id/button_prox_consulta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Asignar proxima consulta"
+        app:layout_constraintEnd_toEndOf="@+id/ button_sintoma_paciente"
+        app:layout_constraintStart_toStartOf="@+id/ button_sintoma_paciente"
+        app:layout_constraintTop_toBottomOf="@+id/ button_sintoma_paciente" />
 </android.support.constraint.ConstraintLayout>

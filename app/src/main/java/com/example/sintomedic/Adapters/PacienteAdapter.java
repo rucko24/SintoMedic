@@ -14,7 +14,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import com.example.sintomedic.GlideApp;
-import com.example.sintomedic.MainActivityDoctor;
 import com.example.sintomedic.Paciente;
 import com.example.sintomedic.R;
 import com.example.sintomedic.ShowFichaPacienteActivity;
@@ -98,6 +97,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
     public void onBindViewHolder(@NonNull PacienteViewHolder vh, int i) {
         Paciente paciente = pacientesList.get(i);
         vh.txtName.setText(paciente.getNombre());
+        vh.txtSurname.setText(paciente.getApellidos());
         GlideApp.with(context)
                 .load(paciente.getFotoPaciente())
                 .into(vh.imgThumbnail);
