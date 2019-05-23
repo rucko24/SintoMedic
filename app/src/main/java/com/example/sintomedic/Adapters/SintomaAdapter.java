@@ -1,4 +1,4 @@
-package com.example.sintomedic;
+package com.example.sintomedic.Adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,23 +9,26 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.sintomedic.Adapters.PacienteAdapter;
+import com.example.sintomedic.R;
+import com.example.sintomedic.Sintoma;
 import com.google.gson.Gson;
 
 import java.util.List;
 
-class SintomaAdapter extends RecyclerView.Adapter<SintomaAdapter.SintomaViewHolder> {
+public class SintomaAdapter extends RecyclerView.Adapter<SintomaAdapter.SintomaViewHolder> {
 
     List<Sintoma> sintomasList;
     LayoutInflater inflater;
     Context context;
     Gson gsonPaciente = new Gson();
 
-    public SintomaAdapter(Context context,List<Sintoma> sintomasList ) {
+    public SintomaAdapter(Context context,List<Sintoma> sintomasList) {
         this.sintomasList=sintomasList;
         inflater=LayoutInflater.from(context);
         this.context=context;
     }
+
+
 
     public class SintomaViewHolder extends RecyclerView.ViewHolder {
         TextView txtFecha;

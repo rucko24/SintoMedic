@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import com.example.sintomedic.GlideApp;
+import com.example.sintomedic.MainActivityDoctor;
 import com.example.sintomedic.Paciente;
 import com.example.sintomedic.R;
 import com.example.sintomedic.ShowFichaPacienteActivity;
@@ -37,6 +38,8 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
         inflater = LayoutInflater.from(context);
         this.context = context;
     }
+
+
 
     public class PacienteViewHolder extends RecyclerView.ViewHolder {
         ImageView imgThumbnail;

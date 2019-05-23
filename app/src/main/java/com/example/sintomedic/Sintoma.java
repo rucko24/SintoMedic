@@ -4,6 +4,14 @@ import java.sql.Date;
 
 public class Sintoma {
 
+    private String Descripcion;
+    private Integer IdPaciente;
+    private Integer  	IdDoctorEnviado;
+    private java.sql.Date FechaHora ;
+    private Integer  Temperatura ;
+    private String  PresionArterial  ;
+    private String  Pulso  ;
+
     public String getDescripcion() {
         return Descripcion;
     }
@@ -12,7 +20,7 @@ public class Sintoma {
         Descripcion = descripcion;
     }
 
-    public String getIdPaciente() {
+    public Integer getIdPaciente() {
         return IdPaciente;
     }
 
@@ -60,13 +68,7 @@ public class Sintoma {
         Pulso = pulso;
     }
 
-    private String Descripcion;
-    private Integer IdPaciente;
-    private Integer  	IdDoctorEnviado;
-    private java.sql.Date FechaHora ;
-    private Integer  Temperatura ;
-    private String  PresionArterial  ;
-    private String  Pulso  ;
+
 
     public Sintoma(String descripcion, Integer idPaciente, Integer idDoctorEnviado, Date fechaHora, Integer temperatura, String presionArterial, String pulso) {
         Descripcion = descripcion;

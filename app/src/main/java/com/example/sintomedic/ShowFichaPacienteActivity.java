@@ -7,7 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.sintomedic.Adapters.SintomaAdapter;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShowFichaPacienteActivity extends AppCompatActivity {
     SintomaAdapter adapter;
@@ -25,7 +29,7 @@ public class ShowFichaPacienteActivity extends AppCompatActivity {
         ControllerSintomas controllerSintomas = new ControllerSintomas(this);
         controllerSintomas.start();
 
-        adapter = new SintomaAdapter(this);
+        adapter = new SintomaAdapter(this,null);// ojo que le pasamos null al principio!!
 
         RecyclerView recycler = findViewById(R.id.recyclerListaPacientes);
         recycler.setAdapter(adapter);

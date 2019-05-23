@@ -28,6 +28,7 @@ import com.example.sintomedic.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
+
     private LoginViewModel loginViewModel;
     /**
      * Credenciales de pruebas BORRAR!!!!!!!! TRAS PRUEBAS!!!!
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     // para los intent:
     public static final int TXT_REQ =1;
     public static final int TXT_REQ2 =2;
+    private static final int TXT_REQ3 =3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -145,40 +147,43 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 
-    //MODIFICACION SERGIO DEL LOGIN ACTIVITY PARA DIRIGIR A UNO U OTRA ACTIVIDAD SEGUN TIPO USER
-
-    /*    Intent intent = null;
-     if(user.equals(USER_TYPE_1)){
-            intent = new Intent(this, PacienteRegisterActivity.class);
-        }else if(user.equals(USER_TYPE_2)){
-            intent = new Intent(this, DoctorRegisterActivity.class);
-        }
-
-     if(intent!=null){
-            startActivity(intent);
-        }
-
-       */
-
-
 
 
     // actividad de registro paciente
-    public void PacienteRegisterActivity(View view) {
+    public void goToPacienteRegisterActivity(View view) {
         Intent intentPaciente = new Intent(this, PacienteRegisterActivity.class);
         //lanzar actividad esperando una respuesta
+        intentPaciente.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//sirve para algo?
         startActivityForResult(intentPaciente,TXT_REQ);
 
     }
 
     // actividad de registro de doctor
-    public void DoctorRegisterActivity(View view) {
+    public void goToDoctorRegisterActivity(View view) {
         Intent intentDoctor = new Intent(this, DoctorRegisterActivity.class);
         //lanzar actividad esperando una respuesta
+        intentDoctor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//sirve para algo?
         startActivityForResult(intentDoctor,TXT_REQ2);
 
     }
+    //MODIFICACION SERGIO DEL LOGIN ACTIVITY PARA DIRIGIR A UNO U OTRA ACTIVIDAD SEGUN TIPO USER
 
+    public void goToUserActivity(View view) {
+        //coger el tipo usuario que sea
 
+        String user = null;
+        Intent intent = null;
+        if(user.equals(USER_TYPE_1)){
+             intent = new Intent(this, PacienteRegisterActivity.class);
+        }else if(user.equals(USER_TYPE_2)){
+             intent = new Intent(this, DoctorRegisterActivity.class);
+        }
+        if(intent!=null){
+            startActivity(intent);
+        }
 
+        //lanzar actividad esperando una respuesta
+
+        startActivityForResult(intent,TXT_REQ3);
+    }
 }
