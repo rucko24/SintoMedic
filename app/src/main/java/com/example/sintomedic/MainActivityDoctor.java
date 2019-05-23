@@ -16,7 +16,7 @@ import com.example.sintomedic.Adapters.PacienteAdapter;
 import com.example.sintomedic.Controllers.ControllerPacientes;
 
 public class MainActivityDoctor extends AppCompatActivity implements ControllerPacientes.ServerResponse {
-    private  List<Paciente> pacientes;
+    private  List<Paciente> pacientesList;
     PacienteAdapter adapter;
     Context context;
 
@@ -48,7 +48,7 @@ public class MainActivityDoctor extends AppCompatActivity implements ControllerP
     }
 
     @Override
-    public void onResponse(List<Paciente> movies) {
+    public void onResponse(List<Paciente> pacientesList) {
 
     }
 }

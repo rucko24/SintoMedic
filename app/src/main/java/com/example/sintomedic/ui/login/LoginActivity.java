@@ -241,7 +241,6 @@ public class LoginActivity extends AppCompatActivity {
     public void goToRegisterActivity(View view,String user) {
         //coger el tipo usuario que sea
 
-        String user = null;
         Intent intent = null;
         if(user.equals(USER_TYPE_1)){
              intent = new Intent(this, PacienteRegisterActivity.class);
@@ -249,11 +248,11 @@ public class LoginActivity extends AppCompatActivity {
              intent = new Intent(this, DoctorRegisterActivity.class);
         }
         if(intent!=null){
-            startActivity(intent);
+            //lanzar actividad esperando una respuesta
+            startActivityForResult(intent,TXT_REQ2);
+            //startActivity(intent);
         }
 
-        //lanzar actividad esperando una respuesta
 
-        startActivityForResult(intent,TXT_REQ3);
     }
 }
