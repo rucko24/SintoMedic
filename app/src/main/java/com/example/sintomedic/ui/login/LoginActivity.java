@@ -145,6 +145,10 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
+        String user=null;
+        View view = null;
+        // IR A LA ACTIVIDAD Y DECIDIR SEGUN USER
+        goToRegisterActivity(view,user);
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
@@ -155,7 +159,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Method that performs RESTful webservice invocations
      *
-     * @param params
+     * @param //params
      */
 
     /*
@@ -177,7 +181,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(obj.getBoolean("status")){
                         Toast.makeText(getApplicationContext(), "You are successfully logged in!", Toast.LENGTH_LONG).show();
                         // Navigate to Home screen
-                        goToUserActivity();
+                        goToRegisterActivity();
                     }
                     // Else display error message
                     else{
@@ -234,7 +238,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     //MODIFICACION SERGIO DEL LOGIN ACTIVITY PARA DIRIGIR A UNO U OTRA ACTIVIDAD SEGUN TIPO USER
 
-    public void goToUserActivity(View view) {
+    public void goToRegisterActivity(View view,String user) {
         //coger el tipo usuario que sea
 
         String user = null;
