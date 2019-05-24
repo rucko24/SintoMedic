@@ -24,6 +24,7 @@ import com.example.sintomedic.DoctorRegisterActivity;
 import com.example.sintomedic.PacienteRegisterActivity;
 import com.example.sintomedic.R;
 import com.example.sintomedic.UnsafeOkHttpClient;
+import com.example.sintomedic.Usuario;
 
 
 import org.json.JSONException;
@@ -238,10 +239,11 @@ public class LoginActivity extends AppCompatActivity {
     }
     //MODIFICACION SERGIO DEL LOGIN ACTIVITY PARA DIRIGIR A UNO U OTRA ACTIVIDAD SEGUN TIPO USER
 
-    public void goToRegisterActivity(View view,String user) {
+    public void goToRegisterActivity(View view) {
         //coger el tipo usuario que sea
 
         Intent intent = null;
+        Usuario user = null;
         if(user.equals(USER_TYPE_1)){
              intent = new Intent(this, PacienteRegisterActivity.class);
         }else if(user.equals(USER_TYPE_2)){

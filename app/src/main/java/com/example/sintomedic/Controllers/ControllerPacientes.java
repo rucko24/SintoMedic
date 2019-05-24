@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.sintomedic.API_recyclers.ListaPacientesAPI;
 import com.example.sintomedic.Paciente;
+import com.example.sintomedic.Usuario;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -20,23 +21,49 @@ public class ControllerPacientes implements Callback<List<Paciente>> {
     private static final String BASE_URL = "http://84.123.198.249:8080/";//mi IP casa + pto APiSpring diferente 8080!!!!!
     private ServerResponse handler;
 
+    Gson gson = new GsonBuilder().setLenient().create();
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build();
+
+    ListaPacientesAPI api = retrofit.create(ListaPacientesAPI.class);
+
 
     public ControllerPacientes(ServerResponse handler){
         this.handler = handler;
     }
-
-    public void start(){
-        Gson gson = new GsonBuilder().setLenient().create();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build();
-
-        ListaPacientesAPI api = retrofit.create(ListaPacientesAPI.class);
+    //poner  el retrofit fuera
+    public void loadPacientes(){
 
         Call<List<Paciente>> call = api.loadPacientes();
-        call.enqueue(this);
+        call.enqueue(new Callback<List<Paciente>>() {
+            @Override
+            public void onResponse(Call<List<Paciente>> call, Response<List<Paciente>> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Paciente>> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void login(){
+        Call<Usuario> call = api.loginUser();
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+
+            }
+
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {
+
+            }
+        });
     }
 
 
