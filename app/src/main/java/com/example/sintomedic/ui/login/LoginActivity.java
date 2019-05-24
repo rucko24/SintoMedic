@@ -223,15 +223,6 @@ public class LoginActivity extends AppCompatActivity {
         */
 
 
-
-    // actividad de registro de doctor
-    public void goToDoctorRegisterActivity(View view) {
-        Intent intentDoctor = new Intent(this, DoctorRegisterActivity.class);
-        //lanzar actividad esperando una respuesta
-        intentDoctor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//sirve para algo?
-        startActivityForResult(intentDoctor,TXT_REQ2);
-
-    }
     //MODIFICACION SERGIO DEL LOGIN ACTIVITY PARA DIRIGIR A UNO U OTRA ACTIVIDAD SEGUN TIPO USER
 
     public void goToLoginActivity(View view) {
@@ -256,4 +247,9 @@ public class LoginActivity extends AppCompatActivity {
     public void LoginActivity(View view) {
     }
 
+    public void DoctorRegisterActivity(View view) {
+    }
+
+    public void PacienteRegisterActivity(View view) {
+    }
 }

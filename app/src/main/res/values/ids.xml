@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="paciente_surname" type="id">paciente_surname</item>
-    <item name="paciente_compania" type="id">paciente_compania</item>
-    <item name="mail_paciente" type="id">mail_paciente</item>
-    <item name="place_paciente" type="id">place_paciente</item>
-    <item name="dni_nie_paciente" type="id">dni_nie_paciente</item>
-    <item name="phone_paciente" type="id">phone_paciente</item>
+
 </resources>

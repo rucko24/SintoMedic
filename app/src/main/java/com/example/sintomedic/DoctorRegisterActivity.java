@@ -20,7 +20,7 @@ public class DoctorRegisterActivity extends AppCompatActivity {
 
     public void addListenerOnButton() {
 
-        botonRegistroDoctor =  findViewById(R.id.registro_final_paciente);
+        botonRegistroDoctor =  findViewById(R.id.button_registro_doctor);
         botonRegistroDoctor.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {

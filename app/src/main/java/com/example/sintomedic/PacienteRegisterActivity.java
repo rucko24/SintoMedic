@@ -15,12 +15,11 @@ public class PacienteRegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_paciente);
-
     }
 
     public void addListenerOnButton() {
 
-        botonRegistroPaciente =  findViewById(R.id.registro_final_paciente);
+        botonRegistroPaciente =  findViewById(R.id.button_registro_paciente);
         botonRegistroPaciente.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
