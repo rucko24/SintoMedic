@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sintomedic.DoctorRegisterActivity;
+import com.example.sintomedic.MainActivityDoctor;
+import com.example.sintomedic.MainActivityPaciente;
 import com.example.sintomedic.PacienteRegisterActivity;
 import com.example.sintomedic.R;
 import com.example.sintomedic.UnsafeOkHttpClient;
@@ -45,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     private String USER_TYPE_2 = "doctor";
 
     // para los intent:
-    public static final int TXT_REQ =1;
+
     public static final int TXT_REQ2 =2;
     private static final int TXT_REQ3 =3;
 
@@ -149,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
         String user=null;
         View view = null;
         // IR A LA ACTIVIDAD Y DECIDIR SEGUN USER
-        goToRegisterActivity(view,user);
+        goToLoginActivity(view);
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
 
@@ -220,14 +222,7 @@ public class LoginActivity extends AppCompatActivity {
 
         */
 
-    // actividad de registro paciente
-    public void goToPacienteRegisterActivity(View view) {
-        Intent intentPaciente = new Intent(this, PacienteRegisterActivity.class);
-        //lanzar actividad esperando una respuesta
-        intentPaciente.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//sirve para algo?
-        startActivityForResult(intentPaciente,TXT_REQ);
 
-    }
 
     // actividad de registro de doctor
     public void goToDoctorRegisterActivity(View view) {
@@ -239,15 +234,15 @@ public class LoginActivity extends AppCompatActivity {
     }
     //MODIFICACION SERGIO DEL LOGIN ACTIVITY PARA DIRIGIR A UNO U OTRA ACTIVIDAD SEGUN TIPO USER
 
-    public void goToRegisterActivity(View view) {
+    public void goToLoginActivity(View view) {
         //coger el tipo usuario que sea
 
         Intent intent = null;
         Usuario user = null;
         if(user.equals(USER_TYPE_1)){
-             intent = new Intent(this, PacienteRegisterActivity.class);
+             intent = new Intent(this, MainActivityPaciente.class);
         }else if(user.equals(USER_TYPE_2)){
-             intent = new Intent(this, DoctorRegisterActivity.class);
+             intent = new Intent(this, MainActivityDoctor.class);
         }
         if(intent!=null){
             //lanzar actividad esperando una respuesta
@@ -257,4 +252,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+    // revisar
+    public void LoginActivity(View view) {
+    }
+
 }
