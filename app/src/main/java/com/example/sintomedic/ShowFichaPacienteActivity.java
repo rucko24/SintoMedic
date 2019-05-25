@@ -7,14 +7,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import com.example.sintomedic.Adapters.SintomaAdapter;
+import com.example.sintomedic.Adapters.PacienteAdapter;
+import com.example.sintomedic.Controllers.Controller;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowFichaPacienteActivity extends AppCompatActivity {
-    SintomaAdapter adapter;
+public class ShowFichaPacienteActivity extends AppCompatActivity implements Controller.ServerResponse {
+    PacienteAdapter adapter;
     Gson gson = new Gson();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +25,11 @@ public class ShowFichaPacienteActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         //recycler View de sintomas de cada paciente:
-        ControllerSintomas controllerSintomas = new ControllerSintomas(this);
-        controllerSintomas.start();
+        Controller controllerSintomas = new Controller(this);
+        controllerSintomas.loadPacientes();
 
-        adapter = new SintomaAdapter(this,null);// ojo que le pasamos null al principio!!
+        adapter = new PacienteAdapter(this,null);// ojo que le pasamos null al principio!!
 
         RecyclerView recycler = findViewById(R.id.recyclerListaPacientes);
         recycler.setAdapter(adapter);
@@ -48,6 +48,18 @@ public class ShowFichaPacienteActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onResponseSintomas(List<Sintoma> sintomas) {
 
+    }
 
+    @Override
+    public void onResponseLogin(Usuario usuario) {
+
+    }
+
+    @Override
+    public void onResponsePacientes(List<Paciente> pacientes) {
+
+    }
 }
