@@ -8,14 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
-import com.example.sintomedic.Adapters.DoctorAdapter;
-
 import java.util.List;
 
 import com.example.sintomedic.Adapters.PacienteAdapter;
-import com.example.sintomedic.Controllers.ControllerPacientes;
+import com.example.sintomedic.Controllers.Controller;
 
-public class MainActivityDoctor extends AppCompatActivity implements ControllerPacientes.ServerResponse {
+public class MainActivityDoctor extends AppCompatActivity implements Controller.ServerResponse {
     private  List<Paciente> pacientesList;
     PacienteAdapter adapter;
     Context context;
@@ -28,7 +26,7 @@ public class MainActivityDoctor extends AppCompatActivity implements ControllerP
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ControllerPacientes controllerDoctor = new ControllerPacientes(this);
+        Controller controllerDoctor = new Controller(this);
         controllerDoctor.start();
         // genero una adaptador tipo pacientes para ver los pacientes
 
