@@ -22,7 +22,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Controller   {
-    private static final String BASE_URL = "http:/########:####/";//IP + pto APiSpring !!!!!
+    private static final String BASE_URL = "http:/84.123.198.249:8080/";//IP + pto APiSpring !!!!!
     private ServerResponse handler;
     public Controller(ServerResponse handler){
         this.handler = handler;
@@ -70,7 +70,7 @@ public class Controller   {
                 if(response.isSuccessful()){
                     List<Paciente> pacientes = response.body();
                         if(pacientes.size()>0) {
-                            Log.d("CONTROLLER", pacientes.get(0).getNombre());
+                            Log.d("CONTROLLER pacientes", pacientes.get(0).getNombre());
                             handler.onResponsePacientes(pacientes);
                         }
                 }else{
@@ -84,6 +84,29 @@ public class Controller   {
         });
     }
 
+    public void downloadSintomas(){
+        Call<List<Sintoma>> call = api.downloadSintomas();
+        call.enqueue(new Callback<List<Sintoma>>() {
+            @SuppressLint("LongLogTag")
+            @Override
+            public void onResponse(Call<List<Sintoma>> call, Response<List<Sintoma>> response) {
+                if(response.isSuccessful()){
+                    List<Sintoma> sintomas = response.body();
+                    if(sintomas.size()>0) {
+                        Log.d("download sintomas", sintomas.get(0).getDescripcion());
+                        handler.onResponseSintomas(sintomas);
+                    }
+                }else{
+                    Log.d("download Sintomas", response.errorBody().toString());
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Sintoma>> call, Throwable t) {t.printStackTrace();
+            }
+        });
+
+    }
+
     public void loadSintomas(){
         Call<List<Sintoma>> call = api.loadSintomas();
         call.enqueue(new Callback<List<Sintoma>>() {
@@ -93,11 +116,11 @@ public class Controller   {
                 if(response.isSuccessful()){
                     List<Sintoma> sintomas = response.body();
                     if(sintomas.size()>0) {
-                        Log.d("CONTROLLER", sintomas.get(0).getDescripcion());
+                        Log.d("load sintomas", sintomas.get(0).getDescripcion());
                         handler.onResponseSintomas(sintomas);
                     }
                 }else{
-                    Log.d("Error Controller Sintomas", response.errorBody().toString());
+                    Log.d("Error load Sintomas", response.errorBody().toString());
                 }
             }
             @Override

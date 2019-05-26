@@ -25,7 +25,7 @@ public class DoctorRegisterActivity extends AppCompatActivity {
 
             public void onClick(View view) {
 
-                EditText name = findViewById(R.id.paciente_name);
+                EditText name = findViewById(R.id.doctor_name);
                 EditText surname = findViewById(R.id.paciente_surname);
                 EditText jobcenter = findViewById(R.id.paciente_compania);
                 EditText dni_nie = findViewById(R.id.dni_nie_paciente);
