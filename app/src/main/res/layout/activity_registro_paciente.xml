@@ -169,7 +169,7 @@
         app:layout_constraintTop_toTopOf="@+id/phone_paciente" />
 
     <Button
-        android:id="@+id/registro_final_doc"
+        android:id="@+id/button_registro_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

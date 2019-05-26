@@ -27,11 +27,12 @@
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/nacimiento_fecha paciente"
+        android:id="@+id/nacimiento_fecha_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
+        android:inputType="date|text"
         android:text="00-05-1988"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -46,7 +47,7 @@
         android:layout_marginBottom="8dp"
         android:text="Apellidos"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/nacimiento_fecha paciente"
+        app:layout_constraintBottom_toTopOf="@+id/nacimiento_fecha_paciente"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/nombre_ficha_paciente" />
 
@@ -107,13 +108,14 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/ button_sintoma_paciente"
+        android:id="@+id/button_sintoma_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:inputType="text"
         android:text="Ver síntomas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -162,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Asignar proxima consulta"
-        app:layout_constraintEnd_toEndOf="@+id/ button_sintoma_paciente"
-        app:layout_constraintStart_toStartOf="@+id/ button_sintoma_paciente"
-        app:layout_constraintTop_toBottomOf="@+id/ button_sintoma_paciente" />
+        app:layout_constraintEnd_toEndOf="@+id/button_sintoma_paciente"
+        app:layout_constraintStart_toStartOf="@+id/button_sintoma_paciente"
+        app:layout_constraintTop_toBottomOf="@+id/button_sintoma_paciente" />
 </android.support.constraint.ConstraintLayout>

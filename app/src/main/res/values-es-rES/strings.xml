@@ -27,4 +27,5 @@
     <string name="lista_doctores" tools:ignore="ExtraTranslation">Lista doctores</string>
     <string name="tratamiento" tools:ignore="ExtraTranslation">Tratamiento</string>
     <string name="calendar_tomas_pacientes" tools:ignore="ExtraTranslation">Calendario de consultas y tomas</string>
+    <string name="name_register_patient">Nombre</string>
 </resources>

@@ -27,7 +27,7 @@ public class MainActivityDoctor extends AppCompatActivity implements Controller.
         setSupportActionBar(toolbar);
 
         Controller controllerDoctor = new Controller(this);
-        controllerDoctor.start();
+        controllerDoctor.login();
         // genero una adaptador tipo pacientes para ver los pacientes
 
         adapter = new PacienteAdapter(this,null);
@@ -45,8 +45,19 @@ public class MainActivityDoctor extends AppCompatActivity implements Controller.
         return true;
     }
 
+
     @Override
-    public void onResponse(List<Paciente> pacientesList) {
+    public void onResponseSintomas(List<Sintoma> sintomas) {
+
+    }
+
+    @Override
+    public void onResponseLogin(Usuario usuario) {
+
+    }
+
+    @Override
+    public void onResponsePacientes(List<Paciente> pacientes) {
 
     }
 }

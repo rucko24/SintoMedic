@@ -21,18 +21,18 @@
         <activity
             android:name=".MainActivityDoctor"
             android:label="@string/title_activity_main_doctor"
-            android:theme="@style/AppTheme.NoActionBar" /> <!-- LOGIN ACTIVITY -->
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- LOGIN ACTIVITY -->
+
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" /> <!-- MAIN ACTIVITY -->
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:label="@string/title_activity_login" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <!-- 2ª registro pacientes -->
+        <!-- MAIN ACTIVITY -->
+
+
+
+        <!--  registro pacientes -->
         <activity
             android:name=".PacienteRegisterActivity"
             android:label="Registro Pacientes"
