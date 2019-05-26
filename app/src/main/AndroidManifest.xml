@@ -14,6 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+        <!-- LOGIN ACTIVITY -->
+
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <!-- MAIN ACTIVITies -->
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"      >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MainActivityPaciente"
             android:label="@string/title_activity_main_paciente"
@@ -22,15 +39,6 @@
             android:name=".MainActivityDoctor"
             android:label="@string/title_activity_main_doctor"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!-- LOGIN ACTIVITY -->
-
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
-
-        <!-- MAIN ACTIVITY -->
-
-
 
         <!--  registro pacientes -->
         <activity
@@ -50,6 +58,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.sintomedic.ui.login.LoginActivity" />
         </activity>
+        <!-- actividad show ficha paciente -->
+        <activity
+            android:name=".ShowFichaPacienteActivity"
+            android:label="Ficha pacientes"
+            android:parentActivityName=".MainActivityDoctor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sintomedic.MainActivityPaciente" />
+        </activity>
+
+
     </application>
 
 </manifest>

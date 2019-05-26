@@ -21,6 +21,7 @@
     <string name="mail">Mail</string>
     <string name="license_number">License number</string>
     <string name="phone">Phone</string>
+    <string name="title_activity_main" translatable="false">MainActivity</string>
     <string name="title_activity_main_doctor" translatable="false">MainActivityDoctor</string>
     <string name="title_activity_main_paciente" translatable="false">MainActivityPaciente</string>
     <string name="sypmton">Add sympton</string>

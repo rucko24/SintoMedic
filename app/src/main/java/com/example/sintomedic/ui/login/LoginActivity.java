@@ -245,11 +245,16 @@ public class LoginActivity extends AppCompatActivity {
     }
     // revisar
     public void LoginActivity(View view) {
+
     }
 
     public void DoctorRegisterActivity(View view) {
+        Intent intent = new Intent(this, DoctorRegisterActivity.class);
+        startActivity(intent);
     }
 
     public void PacienteRegisterActivity(View view) {
+        Intent intent = new Intent(this, PacienteRegisterActivity.class);
+        startActivity(intent);
     }
 }
