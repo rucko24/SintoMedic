@@ -57,7 +57,30 @@ public class Controller    {
 
 
     }
-    public void loadUsers(){
+    public void loadPacientesDoctor(){
+
+        Call <List<Usuario>> call = api.listUsers();
+        call.enqueue(new Callback<List<Usuario>>() {
+            @Override
+            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+                if(response.isSuccessful()){
+                    List<Usuario> usuario = response.body();
+                    if(usuario!=null) {
+                        Log.d("CONTROLLER pacientes", usuario.get(0).getNombre());
+                        //handler.onResponseUsuarios((List<Usuario>) usuario);
+                    }
+                }else{
+                    Log.d("Controller", response.errorBody().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Usuario>> call, Throwable t) {t.printStackTrace();}
+        });
+    }
+
+    public void loadDoctorX(){
 
         Call <List<Usuario>> call = api.listUsers();
         call.enqueue(new Callback<List<Usuario>>() {

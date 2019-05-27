@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imagen_ficha_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -23,8 +23,8 @@
         android:layout_marginTop="8dp"
         android:text="Nombre"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/imagen_ficha_paciente"
+        app:layout_constraintTop_toTopOf="@+id/imagen_ficha_paciente" />
 
     <TextView
         android:id="@+id/nacimiento_fecha_paciente"
@@ -35,8 +35,8 @@
         android:inputType="date|text"
         android:text="00-05-1988"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="@+id/imagen_ficha_paciente"
+        app:layout_constraintStart_toEndOf="@+id/imagen_ficha_paciente" />
 
     <TextView
         android:id="@+id/apellido_ficha_paciente"
@@ -48,15 +48,18 @@
         android:text="Apellidos"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/nacimiento_fecha_paciente"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imagen_ficha_paciente"
         app:layout_constraintTop_toBottomOf="@+id/nombre_ficha_paciente" />
 
     <TextView
-        android:id="@+id/txt_tag_enfermedad_paciente"
+        android:id="@+id/txt_tag_enfermedades_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="TextView"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Enfermedades"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/apellido_ficha_paciente"
         app:layout_constraintTop_toTopOf="@+id/apellido_ficha_paciente" />
 
@@ -74,7 +77,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="TextView"
+        android:layout_marginEnd="8dp"
+        android:text="Compañía "
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/apellido_ficha_paciente"
         app:layout_constraintTop_toTopOf="@+id/nombre_ficha_paciente" />
 
@@ -83,18 +88,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/txt_tag_compania_paciente"
-        app:layout_constraintTop_toTopOf="@+id/txt_tag_compania_paciente" />
-
-    <TextView
-        android:id="@+id/txt_enfermedad_paciente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/txt_tag_enfermedad_paciente"
-        app:layout_constraintTop_toTopOf="@+id/txt_tag_enfermedad_paciente" />
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="######"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/apellido_ficha_paciente"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tag_compania_paciente" />
 
     <TextView
         android:id="@+id/txt_tag_tratamiento"
@@ -102,26 +101,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="Tratamiento"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <Button
-        android:id="@+id/button_sintoma_paciente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:inputType="text"
-        android:text="Ver síntomas"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline10"
-        app:layout_constraintVertical_bias="0.060000002" />
+        app:layout_constraintTop_toBottomOf="@+id/imagen_ficha_paciente" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -156,15 +141,70 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.66" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <Button
         android:id="@+id/button_prox_consulta"
+        android:layout_width="231dp"
+        android:layout_height="44dp"
+        android:text="Asignar proxima consulta"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="680dp" />
+
+    <EditText
+        android:id="@+id/txt_enfermedades_paciente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txt_tag_enfermedades_paciente"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tag_enfermedades_paciente" />
+
+    <TextView
+        android:id="@+id/txt_lista_sintomas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Asignar proxima consulta"
-        app:layout_constraintEnd_toEndOf="@+id/button_sintoma_paciente"
-        app:layout_constraintStart_toStartOf="@+id/button_sintoma_paciente"
-        app:layout_constraintTop_toBottomOf="@+id/button_sintoma_paciente" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Lista de síntomas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="375dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.534"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerListaSintomas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_lista_sintomas" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
 </android.support.constraint.ConstraintLayout>

@@ -37,7 +37,7 @@ public class ShowFichaPacienteActivity extends AppCompatActivity implements Cont
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recycler.setLayoutManager(layoutManager);
-        //HABRA QWUE RECIBIR LOS DATOS , EL PACIENTE ENTERO
+        //HABRA QUE RECIBIR LOS DATOS , EL PACIENTE ENTERO
         Intent intent = getIntent();
         String jsonPaciente = intent.getStringExtra("jsonPaciente");
         //Creamos un nuevo Paciente a partir de json
@@ -58,7 +58,14 @@ public class ShowFichaPacienteActivity extends AppCompatActivity implements Cont
     }
 
     @Override
-    public void onResponsePacientes(List<Paciente> pacientes) {
+    public void onResponseUsuarios(List<Usuario> usuarios) {
 
     }
+
+    @Override
+    public void onResponseUsuario(Usuario usuario) {
+
+    }
+
+
 }

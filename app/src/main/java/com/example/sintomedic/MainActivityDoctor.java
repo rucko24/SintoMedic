@@ -28,7 +28,7 @@ public class MainActivityDoctor extends AppCompatActivity implements Controller.
 
         Controller controllerDoctor = new Controller(this);
         //metodo para pedir todos usuarios de X doctor
-        controllerDoctor.login();
+        controllerDoctor.loadPacientesDoctor();
         // genero una adaptador tipo pacientes para ver los pacientes
 
         adapter = new PacienteAdapter(this,null);
@@ -58,7 +58,14 @@ public class MainActivityDoctor extends AppCompatActivity implements Controller.
     }
 
     @Override
-    public void onResponsePacientes(List<Paciente> pacientes) {
+    public void onResponseUsuarios(List<Usuario> usuarios) {
 
     }
+
+    @Override
+    public void onResponseUsuario(Usuario usuario) {
+
+    }
+
+
 }

@@ -69,7 +69,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
                     // y deserialization va en la otra clase ShowactivityPaciente
                     String jsonPaciente = gsonPaciente.toJson(paciente);
                     intent.putExtra("jsonPaciente", jsonPaciente);
-                    startActivity(intent);
+                    startActivity(intent);// problemas
                 }
             });
         }

@@ -25,12 +25,17 @@ public interface SintoMedicAPI {
     @GET("usuarios/{id}")
     Call<Usuario> listUser();
 
-
     @POST("usuarios")
     @FormUrlEncoded
     Call<Usuario> createUser(@Field("title") String title,
                         @Field("body") String body,
                         @Field("userId") long userId);
+
+    //cargar pacientes de X DOCTOR
+
+    @GET("usuarios/{es_paciente}")
+    Call<List<Usuario>> loadPacientesDoctor();
+    //@Query("DNI_NIE") String DNI_NIE;
 
     // PARA SINTOMAS
 
