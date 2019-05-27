@@ -8,79 +8,77 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 
-import com.example.sintomedic.AsignarConsultaPacienteActivity;
-import com.example.sintomedic.GlideApp;
 import com.example.sintomedic.R;
-import com.example.sintomedic.ShowFichaPacienteActivity;
-import com.example.sintomedic.ShowSintomasPacienteActivity;
-import com.example.sintomedic.Usuario;
+import com.example.sintomedic.Sintoma;
+
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FichaPacienteAdapter extends RecyclerView.Adapter<FichaPacienteAdapter.FichaPacienteViewHolder> {
 
-
     // lista de todos pacientes de X doctor
-    Usuario paciente;
+    private List<Sintoma> sintomasList=new ArrayList<>();
+    //Sintoma sintoma;
     LayoutInflater inflater;
     Context context;
-    Gson gsonPaciente = new Gson();
+    Gson gsonsintoma = new Gson();
 
 
 
-    public FichaPacienteAdapter(Context context, Usuario paciente){
-        this.paciente = paciente;
+
+    public FichaPacienteAdapter(Context context,  List<Sintoma> sintoma){
+        this.sintomasList = sintoma;
         inflater = LayoutInflater.from(context);
         this.context = context;
     }
 
 
 
-    public class FichaPacienteViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgThumbnail;
-        TextView txtName;
-        TextView txtSurname;
-        TextView fechaNacimiento;
+    public class FichaPacienteViewHolder extends RecyclerView.ViewHolder  {
+        //tags del listasintomas_item que inflamos abajo
+        TextView fechaSintma;
+        TextView horaSintoma;
         Button botonVerSintomas;
-        Button proxConsulta;
+        //tag del ShowFichaPacienteActivity SERAN 6!!!
+
 
 
 
         public FichaPacienteViewHolder(View view){
             super(view);
-            imgThumbnail = view.findViewById(R.id.imagen_ficha_paciente);
-            txtName = view.findViewById(R.id.nombre_ficha_paciente);
-            txtSurname = view.findViewById(R.id.apellido_ficha_paciente);
-            fechaNacimiento=view.findViewById(R.id.nacimiento_fecha_paciente);
-            proxConsulta=view.findViewById(R.id.button_prox_consulta);
+            fechaSintma=view.findViewById(R.id.fecha_sintoma_paciente);
+            horaSintoma=view.findViewById(R.id.hora_sintoma_pacientete);
+            botonVerSintomas=view.findViewById(R.id.button_ver_descripcion_sintoma);
 
-            /*Al apretar en Ver detalle sedl recycler view que abra otra activity*/
+
+
             botonVerSintomas.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent (context, AsignarConsultaPacienteActivity.class);
+                    Intent intent = new Intent (context, VerFichaSintoma.class);
+                    Sintoma sintoma=  sintomasList.get(getAdapterPosition());
 
-                    String jsonPaciente = gsonPaciente.toJson(paciente);
-                    intent.putExtra("jsonPaciente", jsonPaciente);
+                    String jsonsintoma = gsonsintoma.toJson(sintomasList);
+                    intent.putExtra("jsonsintoma", jsonsintoma);
                     startActivity(intent);
+
                 }
-            });
-        }
 
-        private void startActivity(Intent intent) {
-        }
+                private void startActivity(Intent intent) {
+                }
+            });        }
+
+
+
     }
 
 
 
-    public void setData(Usuario newList){
-        paciente = newList;
-        notifyDataSetChanged();
-    }
 
 
 
@@ -91,28 +89,29 @@ public class FichaPacienteAdapter extends RecyclerView.Adapter<FichaPacienteAdap
 
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull FichaPacienteAdapter.FichaPacienteViewHolder fichaPacienteViewHolder, int i) {
-
-    }
-
-
-    //rellenado de LOS CAMPOS DE LISTAPACIENTES_ITEM
+    //RELLEN LISTA_SINTOMASiTEM
     @Override
     public void onBindViewHolder(@NonNull FichaPacienteAdapter.FichaPacienteViewHolder vh, int i) {
-        Usuario paciente =  paciente.get(i);
-        vh.txtName.setText(paciente.getNombre());
-        vh.txtSurname.setText(paciente.getApellidos());
-        GlideApp.with(context)
-                .load(paciente.getFotoPaciente())
-                .into(vh.imgThumbnail);
+        Sintoma currentSint =  sintomasList.get(i);
+        //OJO  FALTA SEPARAR FECHA Y HORA!!!!!!!!!
+        vh.fechaSintma.setText((CharSequence) currentSint.getFechaHora());
+        vh.horaSintoma.setText((CharSequence) currentSint.getFechaHora());
+        //vh.botonVerSintomas.setT
+
     }
 
     @Override
     public int getItemCount() {
-        if(paciente==null){
-            return 0;
-        }
-
+        return 0;
     }
+
+    public void setData(List<Sintoma> newList){
+        sintomasList = newList;
+        notifyDataSetChanged();
+    }
+
+
+
+
+
 }

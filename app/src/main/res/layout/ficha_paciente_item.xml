@@ -147,22 +147,15 @@
         android:id="@+id/button_prox_consulta"
         android:layout_width="231dp"
         android:layout_height="44dp"
-        android:text="Asignar proxima consulta"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="680dp" />
-
-    <EditText
-        android:id="@+id/txt_enfermedades_paciente"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+        android:layout_marginBottom="8dp"
+        android:text="Asignar proxima consulta"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/txt_tag_enfermedades_paciente"
-        app:layout_constraintTop_toBottomOf="@+id/txt_tag_enfermedades_paciente" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <TextView
         android:id="@+id/txt_lista_sintomas"
@@ -175,19 +168,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="375dp" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.534"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerListaSintomas"
         android:layout_width="0dp"
@@ -196,7 +176,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_lista_sintomas" />
@@ -207,4 +187,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.85" />
+
+    <TextView
+        android:id="@+id/txt_enfermedades_paciente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txt_tag_enfermedades_paciente"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tag_enfermedades_paciente" />
 </android.support.constraint.ConstraintLayout>

@@ -69,7 +69,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
                     // y deserialization va en la otra clase ShowactivityPaciente
                     String jsonPaciente = gsonPaciente.toJson(paciente);
                     intent.putExtra("jsonPaciente", jsonPaciente);
-                    startActivity(intent);// problemas
+                    startActivity(intent);
                 }
             });
         }
@@ -99,7 +99,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
         vh.txtName.setText(paciente.getNombre());
         vh.txtSurname.setText(paciente.getApellidos());
         GlideApp.with(context)
-                .load(paciente.getFotoPaciente())
+                .load(paciente.getLink_foto_perfil())//link foto en algun servidor fotos, flickr?
                 .into(vh.imgThumbnail);
     }
 
