@@ -13,8 +13,13 @@ package com.example.sintomedic.API_recyclers;
 
 public interface SintoMedicAPI {
 
+    @GET("usuarios/{id}")
+    Call<Usuario> loginUser();
+    //@Query("DNI_NIE") String DNI_NIE;
+
+
     @GET("usuarios")
-    Call<Usuario> listUsers();
+    Call<List<Usuario>> listUsers();
         //@Query("DNI_NIE") String DNI_NIE;
 
     @GET("usuarios/{id}")

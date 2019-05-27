@@ -17,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Controller  implements  {
+public class Controller    {
     private static final String BASE_URL = "http:/84.123.198.249:8080/";//IP + pto APiSpring !!!!!
     private ServerResponse handler;
     public Controller(ServerResponse handler){
@@ -32,7 +32,7 @@ public class Controller  implements  {
     SintoMedicAPI api=retrofit.create(SintoMedicAPI.class);
 
     public void login(){
-        Call<Usuario> call = api.listUsers();
+        Call<Usuario> call = api.loginUser();
         call.enqueue(new Callback<Usuario>() {
             @SuppressLint("LongLogTag")
             @Override
