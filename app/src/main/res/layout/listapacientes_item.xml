@@ -41,7 +41,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView_paciente" />
 
     <Button
-        android:id="@+id/button_detalles_paciente"
+        android:id="@+id/button_ficha_paciente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

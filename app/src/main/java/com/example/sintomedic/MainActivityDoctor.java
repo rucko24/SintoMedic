@@ -14,7 +14,7 @@ import com.example.sintomedic.Adapters.PacienteAdapter;
 import com.example.sintomedic.Controllers.Controller;
 
 public class MainActivityDoctor extends AppCompatActivity implements Controller.ServerResponse {
-    private  List<Paciente> pacientesList;
+    private  List<Usuario> pacientesList;
     PacienteAdapter adapter;
     Context context;
 
@@ -27,6 +27,7 @@ public class MainActivityDoctor extends AppCompatActivity implements Controller.
         setSupportActionBar(toolbar);
 
         Controller controllerDoctor = new Controller(this);
+        //metodo para pedir todos usuarios de X doctor
         controllerDoctor.login();
         // genero una adaptador tipo pacientes para ver los pacientes
 

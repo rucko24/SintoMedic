@@ -3,11 +3,7 @@ package com.example.sintomedic.Controllers;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
-import com.example.sintomedic.API_recyclers.ListaPacientesAPI;
-import com.example.sintomedic.API_recyclers.ListaSintomasAPI;
-import com.example.sintomedic.API_recyclers.LoginAPI;
 import com.example.sintomedic.API_recyclers.SintoMedicAPI;
-import com.example.sintomedic.Paciente;
 import com.example.sintomedic.Sintoma;
 import com.example.sintomedic.Usuario;
 import com.google.gson.Gson;
@@ -21,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Controller   {
+public class Controller  implements  {
     private static final String BASE_URL = "http:/84.123.198.249:8080/";//IP + pto APiSpring !!!!!
     private ServerResponse handler;
     public Controller(ServerResponse handler){
@@ -36,7 +32,7 @@ public class Controller   {
     SintoMedicAPI api=retrofit.create(SintoMedicAPI.class);
 
     public void login(){
-        Call<Usuario> call = api.loadUsuario();
+        Call<Usuario> call = api.listUsers();
         call.enqueue(new Callback<Usuario>() {
             @SuppressLint("LongLogTag")
             @Override
@@ -61,7 +57,52 @@ public class Controller   {
 
 
     }
-    public void loadPacientes(){
+    public void loadUsers(){
+
+        Call <List<Usuario>> call = api.listUsers();
+        call.enqueue(new Callback<List<Usuario>>() {
+            @Override
+            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+                if(response.isSuccessful()){
+                    List<Usuario> usuario = response.body();
+                    if(usuario!=null) {
+                        Log.d("CONTROLLER pacientes", usuario.get(0).getNombre());
+                        //handler.onResponseUsuarios((List<Usuario>) usuario);
+                    }
+                }else{
+                    Log.d("Controller", response.errorBody().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Usuario>> call, Throwable t) {t.printStackTrace();}
+        });
+    }
+
+    public void loadUser(){
+        
+        Call<Usuario> call = api.listUser();
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                if(response.isSuccessful()){
+                    Usuario usuario = response.body();
+                        if(usuario!=null) {
+                            Log.d("CONTROLLER pacientes", usuario.getNombre());
+                            handler.onResponseUsuario((Usuario) usuario);
+                        }
+                }else{
+                    Log.d("Controller", response.errorBody().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {t.printStackTrace();}
+        });
+    }
+   /* public void loadPacientes(){
 
         Call<List<Paciente>> call = api.loadPacientes();
         call.enqueue(new Callback<List<Paciente>>() {
@@ -71,7 +112,7 @@ public class Controller   {
                     List<Paciente> pacientes = response.body();
                         if(pacientes.size()>0) {
                             Log.d("CONTROLLER pacientes", pacientes.get(0).getNombre());
-                            handler.onResponsePacientes(pacientes);
+                            handler.onResponseUsuarios(pacientes);
                         }
                 }else{
                     Log.d("Controller", response.errorBody().toString());
@@ -82,10 +123,10 @@ public class Controller   {
             @Override
             public void onFailure(Call<List<Paciente>> call, Throwable t) {t.printStackTrace();}
         });
-    }
+    }*/
 
     public void downloadSintomas(){
-        Call<List<Sintoma>> call = api.downloadSintomas();
+        Call<List<Sintoma>> call = api.listSintomas();
         call.enqueue(new Callback<List<Sintoma>>() {
             @SuppressLint("LongLogTag")
             @Override
@@ -108,7 +149,7 @@ public class Controller   {
     }
 
     public void loadSintomas(){
-        Call<List<Sintoma>> call = api.loadSintomas();
+        Call<List<Sintoma>> call = api.createSintoma();
         call.enqueue(new Callback<List<Sintoma>>() {
             @SuppressLint("LongLogTag")
             @Override
@@ -136,7 +177,9 @@ public class Controller   {
 
         void onResponseLogin(Usuario usuario);
 
-        void onResponsePacientes(List<Paciente> pacientes);
+        void onResponseUsuarios(List<Usuario> usuarios);
+
+        void onResponseUsuario(Usuario usuario);
     }
 
 

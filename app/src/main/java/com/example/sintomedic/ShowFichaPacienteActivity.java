@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.example.sintomedic.Adapters.PacienteAdapter;
+import com.example.sintomedic.Adapters.SintomaAdapter;
 import com.example.sintomedic.Controllers.Controller;
 import com.google.gson.Gson;
 
@@ -15,34 +16,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShowFichaPacienteActivity extends AppCompatActivity implements Controller.ServerResponse {
-    PacienteAdapter adapter;
+    SintomaAdapter adapter;
     Gson gson = new Gson();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.lista_sintomas);
+        // carga la ficha usuario paciente
+        setContentView(R.layout.ficha_paciente_item);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //recycler View de sintomas de cada paciente:
-        Controller controllerSintomas = new Controller(this);
-        controllerSintomas.loadPacientes();
-
-        adapter = new PacienteAdapter(this,null);// ojo que le pasamos null al principio!!
-
-        RecyclerView recycler = findViewById(R.id.recyclerListaPacientes);
+        Controller controller = new Controller(this);
+        //cargo usuaio buscado
+        controller.loadUser();
+        //preparo adaptador de SINTOMAS
+        adapter = new SintomaAdapter(this,null);// ojo que le pasamos null al principio!!
+        //preparo el recycler lista sintomas
+        RecyclerView recycler = findViewById(R.id.recyclerListaSintomas);
         recycler.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recycler.setLayoutManager(layoutManager);
-
+        //HABRA QWUE RECIBIR LOS DATOS , EL PACIENTE ENTERO
         Intent intent = getIntent();
         String jsonPaciente = intent.getStringExtra("jsonPaciente");
-        //Creamos un objeto Gson
-
         //Creamos un nuevo Paciente a partir de json
-        Paciente paciente = gson.fromJson(jsonPaciente, Paciente.class);
+        Paciente paciente = gson.fromJson(jsonPaciente, Paciente.class);//YA TENEMOS EL PACIENTE
 
 
     }

@@ -25,6 +25,7 @@ public class DoctorRegisterActivity extends AppCompatActivity {
         botonRegistroDoctor.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+                //Usuario usuario=usuario.get;
 
                 EditText name = findViewById(R.id.doctor_name);
                 EditText surname = findViewById(R.id.paciente_surname);
@@ -34,10 +35,10 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                 EditText mail = findViewById(R.id.mail_paciente);
                 EditText phone = findViewById(R.id.phone_paciente);
                 
-
+/*
                 Intent intentDoctor = new Intent(view.getContext(),  SendRegisterData.class);
                 intentDoctor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//sirve para algo?
-                startActivityForResult(intentDoctor, 0);
+                startActivityForResult(intentDoctor, 0);*/
 
             }
         });
