@@ -9,12 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sintomedic.Adapters.PacienteAdapter;
 import com.example.sintomedic.Adapters.SintomaAdapter;
 import com.example.sintomedic.Controllers.Controller;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ShowFichaPacienteActivity extends AppCompatActivity implements Controller.ServerResponse {
@@ -33,7 +31,7 @@ public class ShowFichaPacienteActivity extends AppCompatActivity implements Cont
         super.onCreate(savedInstanceState);
 
         // carga la ficha usuario paciente
-        setContentView(R.layout.ficha_paciente_item);
+        setContentView(R.layout.activity_show_fichapaciente);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         Controller controller = new Controller(this);
@@ -54,7 +52,7 @@ public class ShowFichaPacienteActivity extends AppCompatActivity implements Cont
         Usuario paciente = gson.fromJson(jsonPaciente, Usuario.class);//YA TENEMOS EL PACIENTE
 
 
-        //relacionar con lo que hay en ficha_paciente_item
+        //relacionar con lo que hay en activity_show_fichapaciente
         imagenPaciente =findViewById(R.id.imagen_ficha_paciente);
         txtNombre=findViewById(R.id.nombre_ficha_paciente);
         txtApellidos=findViewById(R.id.apellido_ficha_paciente);
@@ -65,15 +63,16 @@ public class ShowFichaPacienteActivity extends AppCompatActivity implements Cont
     }
 
     @Override
-    public void onResponseUsuario(Usuario usuario) {
-        //conseguir foto y cargarla en ficha_paciente_item
+    public void onResponseUsuario(Usuario paciente) {
+        //ESE paciente ES EL QUE LLEGA DESSDE ARRIBA?????
+        //conseguir foto y cargarla en activity_show_fichapaciente
         /*GlideApp.with(context)
                 .load(usuario.getLink_foto_perfil())
                 .into(usuario.)*/;
-        txtNombre.setText(usuario.getNombre());
-        txtApellidos.setText(usuario.getApellidos());
-        txtFechaNacimiento.setText((CharSequence) usuario.getFechaNacimiento());
-        txtCompania.setText(usuario.getCompanya_Aseguradora());
+        txtNombre.setText(paciente.getNombre());
+        txtApellidos.setText(paciente.getApellidos());
+        txtFechaNacimiento.setText((CharSequence) paciente.getFechaNacimiento());
+        txtCompania.setText(paciente.getCompanya_Aseguradora());
 
 
 

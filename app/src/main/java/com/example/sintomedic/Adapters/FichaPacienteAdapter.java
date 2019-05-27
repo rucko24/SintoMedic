@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.sintomedic.R;
 import com.example.sintomedic.Sintoma;
 
+import com.example.sintomedic.VerFichaSintoma;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
