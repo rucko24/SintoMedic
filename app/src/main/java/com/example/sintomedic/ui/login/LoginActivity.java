@@ -48,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 
     // para los intent:
 
+    public static final String EXTRA_MESSAGE ="intentPaciente";
+
     public static final int TXT_REQ2 =2;
     private static final int TXT_REQ3 =3;
 
@@ -227,12 +229,14 @@ public class LoginActivity extends AppCompatActivity {
 
     public void goToLoginActivity(View view) {
         //coger el tipo usuario que sea
+        //recibimos el objeto usuario
 
         Intent intent = null;
         Usuario user = null;
-        if(user.equals(USER_TYPE_1)){
+        // si no es doctor
+        if(user.isEs_doctor(false)){
              intent = new Intent(this, MainActivityPaciente.class);
-        }else if(user.equals(USER_TYPE_2)){
+        }else {
              intent = new Intent(this, MainActivityDoctor.class);
         }
         if(intent!=null){
@@ -243,6 +247,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
     }
+
+
+
     // revisar
     public void LoginActivity(View view) {
 

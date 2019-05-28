@@ -29,31 +29,12 @@ public class Usuario {
     private String 	link_foto_perfil;
     private ImageView fotoPaciente;
     private  boolean es_doctor;
-    private  boolean es_paciente;
 
-    public Usuario(Long id, String nombre, String apellidos, String contrasenia, String companya_Aseguradora, String DNI_NIE, String localidad, String telefono, String correo, Date fechaNacimiento, Integer id_Enfermedad, Integer id_lista_pacientes, Integer id_lista_doctores, Integer id_lista_proximas_consultas, Integer id_lista_sintomas, Integer num_colegiado, String enfermedad, String tratamiento, String link_foto_perfil, ImageView fotoPaciente, boolean es_doctor, boolean es_paciente) {
+
+    public Usuario(Long id, String contrasenia, String DNI_NIE) {
         this.id = id;
-        Nombre = nombre;
-        Apellidos = apellidos;
         Contrasenia = contrasenia;
-        Companya_Aseguradora = companya_Aseguradora;
         this.DNI_NIE = DNI_NIE;
-        Localidad = localidad;
-        Telefono = telefono;
-        Correo = correo;
-        this.fechaNacimiento = fechaNacimiento;
-        Id_Enfermedad = id_Enfermedad;
-        this.id_lista_pacientes = id_lista_pacientes;
-        this.id_lista_doctores = id_lista_doctores;
-        this.id_lista_proximas_consultas = id_lista_proximas_consultas;
-        this.id_lista_sintomas = id_lista_sintomas;
-        Num_colegiado = num_colegiado;
-        Enfermedad = enfermedad;
-        Tratamiento = tratamiento;
-        this.link_foto_perfil = link_foto_perfil;
-        this.fotoPaciente = fotoPaciente;
-        this.es_doctor = es_doctor;
-        this.es_paciente = es_paciente;
     }
 
     public Usuario() {
@@ -228,7 +209,7 @@ public class Usuario {
         this.fotoPaciente = fotoPaciente;
     }
 
-    public boolean isEs_doctor() {
+    public boolean isEs_doctor(boolean b) {
         return es_doctor;
     }
 
@@ -236,11 +217,5 @@ public class Usuario {
         this.es_doctor = es_doctor;
     }
 
-    public boolean isEs_paciente() {
-        return es_paciente;
-    }
 
-    public void setEs_paciente(boolean es_paciente) {
-        this.es_paciente = es_paciente;
-    }
 }

@@ -6,6 +6,7 @@ package com.example.sintomedic.API_recyclers;
         import java.util.List;
 
         import retrofit2.Call;
+        import retrofit2.http.Body;
         import retrofit2.http.Field;
         import retrofit2.http.FormUrlEncoded;
         import retrofit2.http.GET;
@@ -14,28 +15,27 @@ package com.example.sintomedic.API_recyclers;
 public interface SintoMedicAPI {
     // PARA USUARIOS
 
-    @GET("usuarios/{id}")
-    Call<Usuario> loginUser();
-    //@Query("DNI_NIE") String DNI_NIE;
-
-
-    @GET("usuarios")
-    Call<List<Usuario>> listUsers();
+        @GET("usuarios/{id}")
+        Call<Usuario> loginUser();
         //@Query("DNI_NIE") String DNI_NIE;
 
-    @GET("usuarios/{id}")
-    Call<Usuario> listUser();
+        @GET("usuarios")
+        Call<List<Usuario>> listUsers();
+
+        @GET("usuarios/{id}")
+        Call<Usuario> listUser();
 
 
-    //AÑADIR USUARIOS
-    @POST("usuarios")
-    @FormUrlEncoded
-    Call<Usuario> createUser();
+        //AÑADIR USUARIOS
 
-    //cargar pacientes de X DOCTOR
-    @GET("usuarios/{es_paciente}")
-    Call<List<Usuario>> loadPacientesDoctor();
-    //@Query("DNI_NIE") String DNI_NIE;
+        @POST("usuarios")
+        @FormUrlEncoded
+        Call<Usuario> createUser(@Body Usuario user);
+
+        //cargar pacientes de X DOCTOR
+        @GET("usuarios/{es_paciente}")
+        Call<List<Usuario>> loadPacientesDoctor();
+        //@Query("DNI_NIE") String DNI_NIE;
 
     // PARA SINTOMAS
 
