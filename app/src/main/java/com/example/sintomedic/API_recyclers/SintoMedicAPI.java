@@ -12,6 +12,7 @@ package com.example.sintomedic.API_recyclers;
         import retrofit2.http.POST;
 
 public interface SintoMedicAPI {
+    // PARA USUARIOS
 
     @GET("usuarios/{id}")
     Call<Usuario> loginUser();
@@ -25,14 +26,13 @@ public interface SintoMedicAPI {
     @GET("usuarios/{id}")
     Call<Usuario> listUser();
 
+
+    //AÑADIR USUARIOS
     @POST("usuarios")
     @FormUrlEncoded
-    Call<Usuario> createUser(@Field("title") String title,
-                        @Field("body") String body,
-                        @Field("userId") long userId);
+    Call<Usuario> createUser();
 
     //cargar pacientes de X DOCTOR
-
     @GET("usuarios/{es_paciente}")
     Call<List<Usuario>> loadPacientesDoctor();
     //@Query("DNI_NIE") String DNI_NIE;
@@ -44,7 +44,6 @@ public interface SintoMedicAPI {
 
     @GET("sintomas")
     Call<List<Sintoma>> listSintomas();
-
 
 
 }

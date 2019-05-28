@@ -30,7 +30,7 @@ public class Controller    {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
     SintoMedicAPI api=retrofit.create(SintoMedicAPI.class);
-
+    //LOGIN
     public void login(){
         Call<Usuario> call = api.loginUser();
         call.enqueue(new Callback<Usuario>() {
@@ -57,6 +57,30 @@ public class Controller    {
 
 
     }
+    //CREAR USUARIO
+    public void createUser(){
+        Call <Usuario> call = api.createUser();
+        call.enqueue(new Callback<Usuario>() {
+            @Override
+            public void onResponse(Call<Usuario> call, Response<Usuario>  response) {
+                if(response.isSuccessful()){
+                    Usuario usuario = response.body();
+                    if(usuario!=null) {
+                        Log.d("CONTROLLER pacientes", usuario.getNombre());
+                        //handler.onResponseUsuarios((List<Usuario>) usuario);
+                    }
+                }else{
+                    Log.d("Controller", response.errorBody().toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Usuario> call, Throwable t) {t.printStackTrace();}
+        });
+
+    }
+    //CARGAR LOS PACIENTES DE X DOCTOR
     public void loadPacientesDoctor(){
 
         Call <List<Usuario>> call = api.listUsers();
@@ -80,6 +104,7 @@ public class Controller    {
         });
     }
 
+    //CARGAR X DOCTOR
     public void loadDoctorX(){
 
         Call <List<Usuario>> call = api.listUsers();
@@ -103,6 +128,7 @@ public class Controller    {
         });
     }
 
+    //CARGAR X USUARIO
     public void loadUser(){
         
         Call<Usuario> call = api.listUser();
@@ -125,29 +151,9 @@ public class Controller    {
             public void onFailure(Call<Usuario> call, Throwable t) {t.printStackTrace();}
         });
     }
-   /* public void loadPacientes(){
 
-        Call<List<Paciente>> call = api.loadPacientes();
-        call.enqueue(new Callback<List<Paciente>>() {
-            @Override
-            public void onResponse(Call<List<Paciente>> call, Response<List<Paciente>> response) {
-                if(response.isSuccessful()){
-                    List<Paciente> pacientes = response.body();
-                        if(pacientes.size()>0) {
-                            Log.d("CONTROLLER pacientes", pacientes.get(0).getNombre());
-                            handler.onResponseUsuarios(pacientes);
-                        }
-                }else{
-                    Log.d("Controller", response.errorBody().toString());
-                }
 
-            }
-
-            @Override
-            public void onFailure(Call<List<Paciente>> call, Throwable t) {t.printStackTrace();}
-        });
-    }*/
-
+   //CARGAR SINTOMAS DE 1 PACIENTE
     public void downloadSintomas(){
         Call<List<Sintoma>> call = api.listSintomas();
         call.enqueue(new Callback<List<Sintoma>>() {
@@ -171,6 +177,7 @@ public class Controller    {
 
     }
 
+    //POSTEAR SINTOMAS DE 1 PACIENTE
     public void loadSintomas(){
         Call<List<Sintoma>> call = api.createSintoma();
         call.enqueue(new Callback<List<Sintoma>>() {
