@@ -8,9 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.sintomedic.API_recyclers.SintoMedicAPI;
+import com.example.sintomedic.Controllers.Controller;
+import com.google.gson.Gson;
+
 public class PacienteRegisterActivity extends AppCompatActivity {
 
-    //UsuarioService UsuarioService;
     EditText name;
     EditText surname;
     EditText compania;
@@ -28,10 +31,13 @@ public class PacienteRegisterActivity extends AppCompatActivity {
     TextView tvmail;
             TextView tvtelefono;
     TextView tvcontrasenia;
-            
 
     Button btnRegister;
     Button btnDel;
+
+    SintoMedicAPI api;
+
+    Gson gsonPaciente = new Gson();
     public static final int TXT_REQ =1;
 
     @Override
@@ -48,7 +54,7 @@ public class PacienteRegisterActivity extends AppCompatActivity {
         loc =  findViewById(R.id.place_paciente);
         mail =  findViewById(R.id.mail_paciente);
         telefono =  findViewById(R.id.phone_paciente);
-        telefono =  findViewById(R.id.phone_paciente);
+        contrasenia =  findViewById(R.id.pass_paciente);
 
         tvname = (TextView) findViewById(R.id.txt_namepaciente);
         tvsurname = (TextView) findViewById(R.id.txt_surnamepaciente);
@@ -57,11 +63,13 @@ public class PacienteRegisterActivity extends AppCompatActivity {
         tvloc = (TextView) findViewById(R.id.txt_placepaciente);
         tvmail = (TextView) findViewById(R.id.txt_mailpaciente);
         tvtelefono = (TextView) findViewById(R.id.txt_phonepaciente);
-        telefono =  findViewById(R.id.phone_paciente);
-
+        tvcontrasenia =  findViewById(R.id.txt_pass_pac);
 
         btnRegister = findViewById(R.id.button_registro_paciente);
         btnDel = findViewById(R.id.btn_delete_campos_paciente);
+
+        api=APIUtils.getAPIService();
+
 
         Intent intent = getIntent();
         //addListenerOnButton();
@@ -69,22 +77,31 @@ public class PacienteRegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Usuario u = new Usuario();
-                u.setApellidos(name.getText().toString());
-                u.setNombre(surname.getText().toString());
-                u.setCompanya_Aseguradora(compania.getText().toString());
-                u.setDNI_NIE(dni.getText().toString());
-                u.setLocalidad(loc.getText().toString());
-                u.setCorreo(mail.getText().toString());
-                u.setTelefono(telefono.getText().toString());
+                Usuario paciente = new Usuario();
+                paciente.setApellidos(name.getText().toString());
+                paciente.setNombre(surname.getText().toString());
+                paciente.setCompanya_Aseguradora(compania.getText().toString());
+                paciente.setDNI_NIE(dni.getText().toString());
+                paciente.setLocalidad(loc.getText().toString());
+                paciente.setCorreo(mail.getText().toString());
+                paciente.setTelefono(telefono.getText().toString());
 
-               /* if(UsuarioId != null && UsuarioId.trim().length() > 0){
-                    //update Usuario
-                    updateUsuario(Integer.parseInt(UsuarioId), u);
-                } else {
-                    //add Usuario
-                    addUsuario(u);
-                }*/
+                Intent intent = new Intent (v.getContext(), Controller.class);
+
+                //si quero poasar paciente entero no puedo pasarlo por el bundle
+                //implementar parseable
+                //pasasrlo a json y pasarlo al otro activity con string
+                //pa ciente to json y luego al reves
+                // web para consultar para hacer el parceable
+                //https://coderwall.com/p/vfbing/passing-objects-between-activities-in-android
+
+                // con json mucho mas facil!! https://sites.google.com/site/gson/gson-user-guide
+                //objeto a string va en el adapter
+                // y deserialization va en la otra clase ShowactivityPaciente
+                String jsonPaciente = gsonPaciente.toJson(paciente);
+                intent.putExtra("jsonPaciente", jsonPaciente);
+                startActivity(intent);
+
             }
         });
     }

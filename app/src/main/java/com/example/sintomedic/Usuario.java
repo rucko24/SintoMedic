@@ -10,7 +10,10 @@ public class Usuario {
     private String Apellidos;
     private String Contrasenia;
     private String Companya_Aseguradora;
+    private String centro_medico;
     private String DNI_NIE;
+
+
     private String Localidad;
     private String  Telefono;
     private String  Correo ;
@@ -95,6 +98,15 @@ public class Usuario {
     public void setCompanya_Aseguradora(String companya_Aseguradora) {
         Companya_Aseguradora = companya_Aseguradora;
     }
+
+    public String getCentro_medico() {
+        return centro_medico;
+    }
+
+    public void setCentro_medico(String centro_medico) {
+        this.centro_medico = centro_medico;
+    }
+
 
     public String getDNI_NIE() {
         return DNI_NIE;

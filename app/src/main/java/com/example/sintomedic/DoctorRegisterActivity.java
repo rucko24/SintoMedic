@@ -6,20 +6,103 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.sintomedic.API_recyclers.SintoMedicAPI;
+import com.example.sintomedic.Controllers.Controller;
+import com.google.gson.Gson;
 
 public class DoctorRegisterActivity extends AppCompatActivity {
+
+    EditText name;
+    EditText surname;
+    EditText centro;
+    EditText dni;
+    EditText loc;
+    EditText mail;
+    EditText telefono;
+    EditText numcolegiado;
+    EditText contrasenia;
+
+    TextView tvname;
+    TextView tvsurname;
+    TextView tvcentro;
+    TextView tvdni;
+    TextView tvloc;
+    TextView tvmail;
+    TextView tvtelefono;
+    TextView tvnumcolegiado;
+    TextView tvcontrasenia;
+
+    Button btnRegister;
+    Button btnDel;
+
+    SintoMedicAPI api;
+
+    Gson gsonDoctor = new Gson();
 
     Button botonRegistroDoctor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_doctor);
-        Intent intent = getIntent();
-        addListenerOnButton();
+        setTitle("Registro de doctor");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        name =  findViewById(R.id.doctor_name);
+        surname =  findViewById(R.id.doctor_surname);
+        centro =  findViewById(R.id.centro_medico);
+        dni =  findViewById(R.id.dni_nie_doctor);
+        loc =  findViewById(R.id.place_doctor);
+        mail =  findViewById(R.id.mail_doctor);
+        telefono =  findViewById(R.id.phone_doctor);
+        numcolegiado =  findViewById(R.id.license_number);
+        contrasenia =  findViewById(R.id.pass_doctor);
+
+        tvname = (TextView) findViewById(R.id.txt_doctorname);
+        tvsurname = (TextView) findViewById(R.id.txt_doctorsurname);
+        tvcentro = (TextView) findViewById(R.id.txt_clinica);
+        tvdni            = findViewById(R.id.txt_dninieDoctor);
+        tvloc = (TextView) findViewById(R.id.txt_placeDoctor);
+        tvmail = (TextView) findViewById(R.id.txt_mailDoctor);
+        tvtelefono = (TextView) findViewById(R.id.txt_phoneDoctor);
+        tvnumcolegiado =  findViewById(R.id.txt_numcolegiado);
+        tvcontrasenia =  findViewById(R.id.txt_pass_doctor);
+
+        btnRegister = findViewById(R.id.button_registro_doctor);
+        btnDel = findViewById(R.id.button_eliminar_datos_doctor);
+
+        api=APIUtils.getAPIService();
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Usuario doctor = new Usuario();
+                doctor.setApellidos(name.getText().toString());
+                doctor.setNombre(surname.getText().toString());
+                doctor.setCentro_medico(centro.getText().toString());
+                doctor.setDNI_NIE(dni.getText().toString());
+                doctor.setLocalidad(loc.getText().toString());
+                doctor.setCorreo(mail.getText().toString());
+                doctor.setTelefono(telefono.getText().toString());
+                doctor.setContrasenia(contrasenia.getText().toString());
+
+                Intent intent = new Intent (v.getContext(), Controller.class);
+
+                String jsonDoctor = gsonDoctor.toJson(doctor);
+                intent.putExtra("jsonDoctor", jsonDoctor);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
 
     }
 
-    public void addListenerOnButton() {
+   /* public void addListenerOnButton() {
 
         botonRegistroDoctor =  findViewById(R.id.button_registro_doctor);
         botonRegistroDoctor.setOnClickListener(new View.OnClickListener() {
@@ -28,21 +111,21 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                 //Usuario usuario=usuario.get;
 
                 EditText name = findViewById(R.id.doctor_name);
-                EditText surname = findViewById(R.id.paciente_surname);
-                EditText jobcenter = findViewById(R.id.paciente_compania);
-                EditText dni_nie = findViewById(R.id.dni_nie_paciente);
-                EditText place = findViewById(R.id.place_paciente);
-                EditText mail = findViewById(R.id.mail_paciente);
-                EditText phone = findViewById(R.id.phone_paciente);
+                EditText surname = findViewById(R.id.doctor_surname);
+                EditText jobcenter = findViewById(R.id.doctor_compania);
+                EditText dni_nie = findViewById(R.id.dni_nie_doctor);
+                EditText place = findViewById(R.id.place_doctor);
+                EditText mail = findViewById(R.id.mail_doctor);
+                EditText phone = findViewById(R.id.phone_doctor);
                 
-/*
+*//*
                 Intent intentDoctor = new Intent(view.getContext(),  SendRegisterData.class);
                 intentDoctor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//sirve para algo?
-                startActivityForResult(intentDoctor, 0);*/
+                startActivityForResult(intentDoctor, 0);*//*
 
             }
         });
-    }
+    }*/
 
 
 }
