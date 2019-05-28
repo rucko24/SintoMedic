@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class PacienteRegisterActivity extends AppCompatActivity {
 
-    //UserService userService;
+    //UsuarioService UsuarioService;
     EditText name;
     EditText surname;
     EditText compania;
@@ -18,22 +18,22 @@ public class PacienteRegisterActivity extends AppCompatActivity {
     EditText loc;
     EditText mail;
     EditText telefono;
-
-    TextView tvname
+    EditText contrasenia;
+    
+    TextView tvname;
             TextView tvsurname;
     TextView tvcompania;
     TextView tvdni;
             TextView tvloc;
     TextView tvmail;
             TextView tvtelefono;
+    TextView tvcontrasenia;
+            
 
     Button btnRegister;
     Button btnDel;
-
-
-
     public static final int TXT_REQ =1;
-    Button botonRegistroPaciente;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,31 +41,59 @@ public class PacienteRegisterActivity extends AppCompatActivity {
         setTitle("Registro de paciente");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        name = (EditText) findViewById(R.id.paciente_name);
-        surname = (EditText) findViewById(R.id.paciente_surname);
-        compania = (EditText) findViewById(R.id.paciente_compania);
-        dni = (EditText) findViewById(R.id.dni_nie_paciente);
-        loc = (EditText) findViewById(R.id.place_paciente);
-        mail = (EditText) findViewById(R.id.mail_paciente);
-        telefono = (EditText) findViewById(R.id.phone_paciente);
+        name =  findViewById(R.id.paciente_name);
+        surname =  findViewById(R.id.paciente_surname);
+        compania =  findViewById(R.id.paciente_compania);
+        dni =  findViewById(R.id.dni_nie_paciente);
+        loc =  findViewById(R.id.place_paciente);
+        mail =  findViewById(R.id.mail_paciente);
+        telefono =  findViewById(R.id.phone_paciente);
+        telefono =  findViewById(R.id.phone_paciente);
 
         tvname = (TextView) findViewById(R.id.txt_namepaciente);
         tvsurname = (TextView) findViewById(R.id.txt_surnamepaciente);
         tvcompania = (TextView) findViewById(R.id.txt_companiapaciente);
-        tvdni            = (TextView) findViewById(R.id.txt_dninie_paciente);
+        tvdni            = findViewById(R.id.txt_dninie_paciente);
         tvloc = (TextView) findViewById(R.id.txt_placepaciente);
         tvmail = (TextView) findViewById(R.id.txt_mailpaciente);
         tvtelefono = (TextView) findViewById(R.id.txt_phonepaciente);
+        telefono =  findViewById(R.id.phone_paciente);
 
 
-        btnRegister = (Button) findViewById(R.id.button_registro_paciente);
-        btnDel = (Button) findViewById(R.id.btn_delete_campos_paciente);
+        btnRegister = findViewById(R.id.button_registro_paciente);
+        btnDel = findViewById(R.id.btn_delete_campos_paciente);
 
         Intent intent = getIntent();
-        addListenerOnButton();
+        //addListenerOnButton();
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Usuario u = new Usuario();
+                u.setApellidos(name.getText().toString());
+                u.setNombre(surname.getText().toString());
+                u.setCompanya_Aseguradora(compania.getText().toString());
+                u.setDNI_NIE(dni.getText().toString());
+                u.setLocalidad(loc.getText().toString());
+                u.setCorreo(mail.getText().toString());
+                u.setTelefono(telefono.getText().toString());
+
+               /* if(UsuarioId != null && UsuarioId.trim().length() > 0){
+                    //update Usuario
+                    updateUsuario(Integer.parseInt(UsuarioId), u);
+                } else {
+                    //add Usuario
+                    addUsuario(u);
+                }*/
+            }
+        });
     }
 
-    public void addListenerOnButton() {
+
+
+
+
+    /*public void addListenerOnButton() {
 
         botonRegistroPaciente =  findViewById(R.id.button_registro_paciente);
         botonRegistroPaciente.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +117,7 @@ public class PacienteRegisterActivity extends AppCompatActivity {
             }
         });
     }
-
+*/
 
 
 }
