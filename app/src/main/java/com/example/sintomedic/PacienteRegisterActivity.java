@@ -47,7 +47,7 @@ public class PacienteRegisterActivity extends AppCompatActivity {
         dni = (EditText) findViewById(R.id.dni_nie_paciente);
         loc = (EditText) findViewById(R.id.place_paciente);
         mail = (EditText) findViewById(R.id.mail_paciente);
-        telefono = (EditText) findViewById(R.id.phone_paciente;
+        telefono = (EditText) findViewById(R.id.phone_paciente);
 
         tvname = (TextView) findViewById(R.id.txt_namepaciente);
         tvsurname = (TextView) findViewById(R.id.txt_surnamepaciente);
