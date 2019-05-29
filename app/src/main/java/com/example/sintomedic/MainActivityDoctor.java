@@ -14,6 +14,8 @@ import com.example.sintomedic.Adapters.PacienteAdapter;
 import com.example.sintomedic.Controllers.Controller;
 
 public class MainActivityDoctor extends AppCompatActivity implements Controller.ServerResponse {
+
+    //recibira un intent con la lista ed pacientes determinada del doctor X logeado
     private  List<Usuario> pacientesList;
     PacienteAdapter adapter;
     Context context;

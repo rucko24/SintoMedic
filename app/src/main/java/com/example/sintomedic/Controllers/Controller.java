@@ -80,6 +80,7 @@ public class Controller    {
         });
 
     }
+
     //CARGAR LOS PACIENTES DE X DOCTOR
     public void loadPacientesDoctor(){
 
