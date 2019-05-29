@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,9 +35,8 @@ import com.example.sintomedic.Usuario;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginActivity extends AppCompatActivity {
-
-
+public class LoginActivity extends AppCompatActivity implements AsyncResponse {
+    //MyAsyncTask asyncTask =new MyAsyncTask();
     private LoginViewModel loginViewModel;
     /**
      * Credenciales de pruebas BORRAR!!!!!!!! TRAS PRUEBAS!!!!
@@ -42,6 +44,28 @@ public class LoginActivity extends AppCompatActivity {
      */
     private static final String DUMMY_USER_ID = "0000000000";
     private static final String DUMMY_PASSWORD = "dummy_password";
+
+    /**
+     * Keep track of the login task to ensure we can cancel it if requested.
+     */
+    //private UserLoginTask mAuthTask = null;
+
+    // UI references.
+    private ImageView mLogoView;
+
+    private EditText usernameEditText;
+    private EditText passwordEditText;
+    
+    private CheckBox checkBoxEditText;
+    private TextInputLayout mFloatLabelUserId;
+    private TextInputLayout mFloatLabelPassword;
+    private Button registerPacienteButton;
+    private Button registerDoctorButton;
+    private  Button loginButton;
+private ProgressBar loadingProgressBar;
+    private View mProgressView;
+    private View mLoginFormView;
+
     //STRING TIPOS USUARIO
     private String USER_TYPE_1 = "paciente";
     private String USER_TYPE_2 = "doctor";
@@ -52,21 +76,53 @@ public class LoginActivity extends AppCompatActivity {
 
     public static final int TXT_REQ2 =2;
     private static final int TXT_REQ3 =3;
+    private boolean show;
+    private UserLoginTask mAuthTask;
+    private Boolean es_doctor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
+
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
-        final CheckBox checkBoxEditText = findViewById(R.id.checkBox);
-        final Button loginButton = findViewById(R.id.login);
-        final Button registerPacienteButton = findViewById(R.id.regPacienteButton);
-        final Button registerDoctorButton = findViewById(R.id.regDoctorButton);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        mLogoView=findViewById(R.id.logo_sintomedic);
+        
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
+        
+        checkBoxEditText = findViewById(R.id.checkBox);
+        loginButton = findViewById(R.id.login);
+         registerPacienteButton = findViewById(R.id.regPacienteButton);
+        registerDoctorButton = findViewById(R.id.regDoctorButton);
+       loadingProgressBar = findViewById(R.id.loading);
+
+
+        //Ahora estableceremos las escuchas para el evento de edición en el campo de texto del
+        // password y el click en el botón de login:
+        // Setup
+        passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                    attemptLogin();
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attemptLogin();
+            }
+        });
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -143,7 +199,122 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+
+
+    }// FIN ON CREATE
+
+
+    //############### METODO INTENTO LOGIN!!  #########################
+    private void attemptLogin() {
+        if (mAuthTask != null) {
+            return;
+        }
+
+        // Reset errors.
+        mFloatLabelUserId.setError(null);
+        mFloatLabelPassword.setError(null);
+
+        // Store values at the time of the login attempt.
+        String userId = usernameEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+
+        boolean cancel = false;
+        View focusView = null;
+
+        // Check for a valid password, if the user entered one.
+        if (TextUtils.isEmpty(password)) {
+            mFloatLabelPassword.setError(getString(R.string.error_field_required));
+            focusView = mFloatLabelPassword;
+            cancel = true;
+        } else if (!isPasswordValid(password)) {
+            mFloatLabelPassword.setError(getString(R.string.error_invalid_password));
+            focusView = mFloatLabelPassword;
+            cancel = true;
+        }
+
+        // Verificar si el ID tiene contenido.
+        if (TextUtils.isEmpty(userId)) {
+            mFloatLabelUserId.setError(getString(R.string.error_field_required));
+            focusView = mFloatLabelUserId;
+            cancel = true;
+        } else if (!isUserIdValid(userId)) {
+            mFloatLabelUserId.setError(getString(R.string.error_invalid_user_id));
+            focusView = mFloatLabelUserId;
+            cancel = true;
+        }
+
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first
+            // form field with an error.
+            focusView.requestFocus();
+        } else {
+            // Show a progress spinner, and kick off a background task to
+            // perform the user login attempt.
+            showProgress(true);
+            mAuthTask = new UserLoginTask(userId, password);
+            mAuthTask.execute((Void) null);
+        }
+
     }
+    //METODO PARA MOSTRAR EL PROGRESO
+
+    private void showProgress(boolean b) {
+        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+
+        int visibility = show ? View.GONE : View.VISIBLE;
+        mLogoView.setVisibility(visibility);
+        mLoginFormView.setVisibility(visibility);
+    }
+
+    // EL USER ID SERA EL DNI O NIE QUE SIEMPRE ES DE 9 MAXIMO DE LONGITUD,
+    // EN SU DEFECTO INTRODUZCA USUARIO MENOR O= A 9
+    private boolean isUserIdValid(String userId) {
+        return userId.length()<=9;
+    }
+
+    //CONTARSEÑA MAYOR QUE 5 
+    private boolean isPasswordValid(String password) {
+        return password.length() > 5;
+    }
+   /* @Override
+    protected void onPostExecute(final Integer success) {
+        mAuthTask = null;
+        showProgress(false);
+
+        switch (success) {
+            case 1:
+                showActivityUsuario();
+                break;
+            case 2:
+            case 3:
+                showLoginError("Número de identificación o contraseña inválidos");
+                break;
+            case 4:
+                showLoginError(getString(R.string.error_server));
+                break;
+        }
+    }*/
+
+    private void showActivityUsuario() {
+
+        if (es_doctor){
+            startActivity(new Intent(this, MainActivityDoctor.class));
+            finish();
+        } else{
+            startActivity(new Intent(this, MainActivityPaciente.class));
+            finish();
+
+        }
+
+
+
+    }
+
+    private void showLoginError(String error) {
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+    }
+
+
 
 
 
@@ -263,5 +434,13 @@ public class LoginActivity extends AppCompatActivity {
     public void PacienteRegisterActivity(View view) {
         Intent intent = new Intent(this, PacienteRegisterActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void processFinish(String output) {
+
+        //Here you will receive the result fired from async class
+        //of onPostExecute(result) method.
+
     }
 }

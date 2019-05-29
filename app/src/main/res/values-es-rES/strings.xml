@@ -28,4 +28,8 @@
     <string name="tratamiento" tools:ignore="ExtraTranslation">Tratamiento</string>
     <string name="calendar_tomas_pacientes" tools:ignore="ExtraTranslation">Calendario de consultas y tomas</string>
     <string name="name_register_patient">Nombre</string>
+    <string name="error_field_required">Este campo es requerido</string>
+    <string name="error_invalid_password">Contraseña incorrecta</string>
+    <string name="error_invalid_user_id">Longitud DNI, NIE o usuario superior a 9 caracteres, introduzca una menor.</string>
+    <string name="error_server">Error en servidor</string>
 </resources>

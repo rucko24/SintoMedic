@@ -32,6 +32,10 @@ public interface SintoMedicAPI {
         @FormUrlEncoded
         Call<Usuario> createUser(@Body Usuario user);
 
+        @POST("usuarios")
+        Call<Usuario> createUser();
+
+
         //cargar pacientes de X DOCTOR
         @GET("usuarios/{es_paciente}")
         Call<List<Usuario>> loadPacientesDoctor();
@@ -44,6 +48,7 @@ public interface SintoMedicAPI {
 
     @GET("sintomas")
     Call<List<Sintoma>> listSintomas();
+
 
 
 }
