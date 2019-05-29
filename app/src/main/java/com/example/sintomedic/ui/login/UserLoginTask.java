@@ -19,8 +19,8 @@ class UserLoginTask extends AsyncTask<Void, Void, Integer> {
 
     private static final String DUMMY_USER_ID ="aa" ;
     private static final String DUMMY_PASSWORD ="1234" ;
-    private final String mUserId;
-    private final String mPassword;
+    private String mUserId;
+    private String mPassword;
 
     UserLoginTask(String userId, String password) {
         mUserId = userId;
