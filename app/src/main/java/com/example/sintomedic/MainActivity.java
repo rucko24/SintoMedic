@@ -18,5 +18,10 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         //setContentView(R.layout.activity_main);
+
+        /*startActivity(new Intent(this, MainActivityDoctor.class));
+        finish();
+*/
+
     }
 }

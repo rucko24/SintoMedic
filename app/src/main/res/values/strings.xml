@@ -37,4 +37,8 @@
     <string name="calendar_tomas_pacientes">Calendar of consultations and doses</string>
     <string name="lista_doctores">Doctor\'s list</string>
     <string name="tratamiento">Treatment</string>
+    <string name="error_field_required">Required field</string>
+    <string name="error_invalid_password">Wrong pass</string>
+    <string name="error_invalid_user_id">DNI NIE incorrect</string>
+    <string name="error_server">Server error</string>
 </resources>

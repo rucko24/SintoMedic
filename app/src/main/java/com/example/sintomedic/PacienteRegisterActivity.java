@@ -86,7 +86,7 @@ public class PacienteRegisterActivity extends AppCompatActivity {
                 paciente.setCorreo(mail.getText().toString());
                 paciente.setTelefono(telefono.getText().toString());
 
-                Intent intent = new Intent (v.getContext(), Controller.class);
+
 
                 //si quero poasar paciente entero no puedo pasarlo por el bundle
                 //implementar parseable
@@ -98,6 +98,7 @@ public class PacienteRegisterActivity extends AppCompatActivity {
                 // con json mucho mas facil!! https://sites.google.com/site/gson/gson-user-guide
                 //objeto a string va en el adapter
                 // y deserialization va en la otra clase ShowactivityPaciente
+                Intent intent = new Intent (v.getContext(), Controller.class);
                 String jsonPaciente = gsonPaciente.toJson(paciente);
                 intent.putExtra("jsonPaciente", jsonPaciente);
                 startActivity(intent);

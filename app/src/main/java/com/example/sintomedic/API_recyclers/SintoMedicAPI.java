@@ -13,7 +13,7 @@ package com.example.sintomedic.API_recyclers;
         import retrofit2.http.POST;
 
 public interface SintoMedicAPI {
-    // PARA USUARIOS
+        // PARA USUARIOS
 
         @GET("usuarios/{id}")
         Call<Usuario> loginUser();

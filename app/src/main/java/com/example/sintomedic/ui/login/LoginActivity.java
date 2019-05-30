@@ -200,9 +200,7 @@ private ProgressBar loadingProgressBar;
             }
         });
 
-
     }// FIN ON CREATE
-
 
     //############### METODO INTENTO LOGIN!!  #########################
     private void attemptLogin() {

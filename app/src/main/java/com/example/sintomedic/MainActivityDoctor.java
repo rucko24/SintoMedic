@@ -15,7 +15,7 @@ import com.example.sintomedic.Controllers.Controller;
 
 public class MainActivityDoctor extends AppCompatActivity implements Controller.ServerResponse {
 
-    //recibira un intent con la lista ed pacientes determinada del doctor X logeado
+    //recibira un intent con EL ID DEL DOCTOR LOGEADO!!!!!!!!!
     private  List<Usuario> pacientesList;
     PacienteAdapter adapter;
     Context context;
@@ -28,18 +28,18 @@ public class MainActivityDoctor extends AppCompatActivity implements Controller.
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        RecyclerView recycler = findViewById(R.id.recyclerListaPacientes);
+        adapter = new PacienteAdapter(this,null);
+        recycler.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recycler.setLayoutManager(layoutManager);
+
         Controller controllerDoctor = new Controller(this);
         //metodo para pedir todos usuarios de X doctor
         controllerDoctor.loadPacientesDoctor();
         // genero una adaptador tipo pacientes para ver los pacientes
 
-        adapter = new PacienteAdapter(this,null);
-
-        RecyclerView recycler = findViewById(R.id.recyclerListaPacientes);
-        recycler.setAdapter(adapter);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recycler.setLayoutManager(layoutManager);
 
     }
 

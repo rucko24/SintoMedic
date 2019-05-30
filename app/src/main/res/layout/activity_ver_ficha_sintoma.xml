@@ -105,7 +105,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline8" />
 
     <TextView
-        android:id="@+id/  "
+        android:id="@+id/tension_consulta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -86,13 +86,14 @@ public class Controller    {
 
         Call <List<Usuario>> call = api.listUsers();
         call.enqueue(new Callback<List<Usuario>>() {
+            @SuppressLint("LongLogTag")
             @Override
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if(response.isSuccessful()){
-                    List<Usuario> usuario = response.body();
-                    if(usuario!=null) {
-                        Log.d("CONTROLLER pacientes", usuario.get(0).getNombre());
-                        //handler.onResponseUsuarios((List<Usuario>) usuario);
+                    List<Usuario> usuariosList = response.body();
+                    if(usuariosList.size()>0) {
+                        Log.d("CONTROLLER paciente 1 es:", usuariosList.get(0).getNombre());
+                        handler.onResponseUsuarios(usuariosList);
                     }
                 }else{
                     Log.d("Controller", response.errorBody().toString());
@@ -131,17 +132,17 @@ public class Controller    {
 
     //CARGAR X USUARIO
     public void loadUser(){
-        
+
         Call<Usuario> call = api.listUser();
         call.enqueue(new Callback<Usuario>() {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if(response.isSuccessful()){
                     Usuario usuario = response.body();
-                        if(usuario!=null) {
-                            Log.d("CONTROLLER pacientes", usuario.getNombre());
-                            handler.onResponseUsuario((Usuario) usuario);
-                        }
+                    if(usuario!=null) {
+                        Log.d("CONTROLLER pacientes", usuario.getNombre());
+                        handler.onResponseUsuario((Usuario) usuario);
+                    }
                 }else{
                     Log.d("Controller", response.errorBody().toString());
                 }
@@ -154,7 +155,7 @@ public class Controller    {
     }
 
 
-   //CARGAR SINTOMAS DE 1 PACIENTE
+    //CARGAR SINTOMAS DE 1 PACIENTE
     public void downloadSintomas(){
         Call<List<Sintoma>> call = api.listSintomas();
         call.enqueue(new Callback<List<Sintoma>>() {
