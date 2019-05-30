@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import com.example.sintomedic.EliminarPacienteActivity;
 import com.example.sintomedic.GlideApp;
 import com.example.sintomedic.R;
 import com.example.sintomedic.ShowFichaPacienteActivity;
@@ -43,6 +44,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
         TextView txtName;
         TextView txtSurname;
         Button txtFicha;
+        Button txtEliminar;
 
 
         public PacienteViewHolder(View view){
@@ -51,6 +53,7 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
             txtName = view.findViewById(R.id.txt_nombre_paciente_item);
             txtSurname = view.findViewById(R.id.txt_apellido_paciente_item);
             txtFicha=view.findViewById(R.id.button_ficha_paciente);
+
             /*Al apretar en Ver detalle sedl recycler view que abra otra activity*/
             txtFicha.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -67,6 +70,18 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
                     // con json mucho mas facil!! https://sites.google.com/site/gson/gson-user-guide
                     //objeto a string va en el adapter
                     // y deserialization va en la otra clase ShowactivityPaciente
+                    String jsonPaciente = gsonPaciente.toJson(paciente);
+                    intent.putExtra("jsonPaciente", jsonPaciente);
+                    startActivity(intent);
+                }
+            });
+
+            txtEliminar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent (context, EliminarPacienteActivity.class);
+                    Usuario paciente = pacientesList.get(getAdapterPosition());
+                    int pacienteID=paciente.getId();
                     String jsonPaciente = gsonPaciente.toJson(paciente);
                     intent.putExtra("jsonPaciente", jsonPaciente);
                     startActivity(intent);

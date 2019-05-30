@@ -13,14 +13,16 @@ package com.example.sintomedic.API_recyclers;
         import retrofit2.http.POST;
 
 public interface SintoMedicAPI {
-        // PARA USUARIOS
+        // PARA USUARIOS PROVISIONAL
 
         @GET("usuarios/{id}")
         Call<Usuario> loginUser();
         //@Query("DNI_NIE") String DNI_NIE;
 
+        // PACIENTES DE UN DOCTOR (es_doctor false y id_doctor el suyo)
+        //FALTA CONSULTA SQL QUERY
         @GET("usuarios")
-        Call<List<Usuario>> listUsers();
+        Call<List<Usuario>> listUsers( @Field("id_lista_doctores") int id_lista_doctores);
 
         @GET("usuarios/{id}")
         Call<Usuario> listUser();
