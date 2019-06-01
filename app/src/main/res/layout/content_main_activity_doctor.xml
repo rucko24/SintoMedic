@@ -51,19 +51,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="412dp"
-        tools:layout_editor_absoluteY="436dp" />
-
-    <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="Añade paciente"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,11 +72,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/searchView"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_busca_new_paciente" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_nombre_paciente_buscado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -94,13 +87,14 @@
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txt_apellidos_paciente_buscado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         android:text="Apellidos"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="443dp" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombre_paciente_buscado" />
 
     <SearchView
         android:id="@+id/searchView"
@@ -109,7 +103,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_busca_new_paciente" />
 
     <TextView
         android:id="@+id/nombre_paciente_buscado"
@@ -118,9 +112,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="Nombre"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_nombre_paciente_buscado"
         app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        tools:layout_editor_absoluteY="407dp" />
+        app:layout_constraintStart_toEndOf="@+id/txt_nombre_paciente_buscado" />
 
     <TextView
         android:id="@+id/apellidos_paciente_buscado"
@@ -129,8 +123,20 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:text="Apellidos APellidos"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        tools:layout_editor_absoluteY="443dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/txt_apellidos_paciente_buscado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_apellidos_paciente_buscado" />
+
+    <TextView
+        android:id="@+id/txt_busca_new_paciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Busca nuevo paciente por DNI/NIE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
 </android.support.constraint.ConstraintLayout>

@@ -83,8 +83,9 @@ public class Controller    {
 
     //CARGAR LOS PACIENTES DE X DOCTOR
     public void loadPacientesDoctor(){
-
-        Call <List<Usuario>> call = api.listUsers();
+        //OJO HABRA QUE CAMBIARLO
+        int id_listadoctores=1;
+        Call <List<Usuario>> call = api.listUsers(id_listadoctores);
         call.enqueue(new Callback<List<Usuario>>() {
             @SuppressLint("LongLogTag")
             @Override
@@ -109,14 +110,14 @@ public class Controller    {
     //CARGAR X DOCTOR
     public void loadDoctorX(){
 
-        Call <List<Usuario>> call = api.listUsers();
-        call.enqueue(new Callback<List<Usuario>>() {
+        Call <Usuario> call = api.listUser();
+        call.enqueue(new Callback<Usuario>() {
             @Override
-            public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
+            public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if(response.isSuccessful()){
-                    List<Usuario> usuario = response.body();
+                    Usuario usuario = response.body();
                     if(usuario!=null) {
-                        Log.d("CONTROLLER pacientes", usuario.get(0).getNombre());
+                        Log.d("CONTROLLER pacientes", usuario.getNombre());
                         //handler.onResponseUsuarios((List<Usuario>) usuario);
                     }
                 }else{
@@ -126,7 +127,7 @@ public class Controller    {
             }
 
             @Override
-            public void onFailure(Call<List<Usuario>> call, Throwable t) {t.printStackTrace();}
+            public void onFailure(Call<Usuario> call, Throwable t) {t.printStackTrace();}
         });
     }
 

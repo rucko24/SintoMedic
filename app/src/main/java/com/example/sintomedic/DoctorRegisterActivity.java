@@ -12,6 +12,8 @@ import com.example.sintomedic.API_recyclers.SintoMedicAPI;
 import com.example.sintomedic.Controllers.Controller;
 import com.google.gson.Gson;
 
+import org.apache.http.params.HttpParams;
+
 public class DoctorRegisterActivity extends AppCompatActivity {
 
     EditText name;
@@ -69,12 +71,12 @@ public class DoctorRegisterActivity extends AppCompatActivity {
         tvnumcolegiado =  findViewById(R.id.txt_numcolegiado);
         tvcontrasenia =  findViewById(R.id.txt_pass_doctor);
 
-        btnRegister = findViewById(R.id.button_registro_doctor);
+        botonRegistroDoctor = findViewById(R.id.button_registro_doctor);
         btnDel = findViewById(R.id.button_eliminar_datos_doctor);
 
         api=APIUtils.getAPIService();
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        botonRegistroDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Usuario doctor = new Usuario();
@@ -90,6 +92,8 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                 Intent intent = new Intent (v.getContext(), Controller.class);
 
                 String jsonDoctor = gsonDoctor.toJson(doctor);
+
+                //postData("http://your/login/url",jsonDoctor);
                 intent.putExtra("jsonDoctor", jsonDoctor);
                 startActivity(intent);
 
@@ -97,10 +101,9 @@ public class DoctorRegisterActivity extends AppCompatActivity {
         });
 
 
-
-
-
     }
+    //METODO PARA POSTEAR EN SPRING
+
 
    /* public void addListenerOnButton() {
 

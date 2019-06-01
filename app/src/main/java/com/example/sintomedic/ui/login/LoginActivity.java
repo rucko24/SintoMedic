@@ -85,11 +85,8 @@ private ProgressBar loadingProgressBar;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
-
         mLogoView=findViewById(R.id.logo_sintomedic);
         
         usernameEditText = findViewById(R.id.username);
@@ -97,9 +94,9 @@ private ProgressBar loadingProgressBar;
         
         checkBoxEditText = findViewById(R.id.checkBox);
         loginButton = findViewById(R.id.login);
-         registerPacienteButton = findViewById(R.id.regPacienteButton);
+        registerPacienteButton = findViewById(R.id.regPacienteButton);
         registerDoctorButton = findViewById(R.id.regDoctorButton);
-       loadingProgressBar = findViewById(R.id.loading);
+        loadingProgressBar = findViewById(R.id.loading);
 
 
         //Ahora estableceremos las escuchas para el evento de edición en el campo de texto del
