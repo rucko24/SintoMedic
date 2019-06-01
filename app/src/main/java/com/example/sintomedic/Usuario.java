@@ -5,11 +5,24 @@ import android.widget.ImageView;
 import java.util.Date;
 
 public class Usuario {
-    private Long id;
+    private int id;
     private String Nombre;
     private String Apellidos;
     private String Contrasenia;
-    private String Companya_Aseguradora;
+
+    public String getCompaniaAseguradora() {
+        return CompaniaAseguradora;
+    }
+
+    public void setCompaniaAseguradora(String companiaAseguradora) {
+        CompaniaAseguradora = companiaAseguradora;
+    }
+
+    public boolean isEs_doctor() {
+        return es_doctor;
+    }
+
+    private String CompaniaAseguradora;
     private String centro_medico;
     private String DNI_NIE;
 
@@ -31,7 +44,7 @@ public class Usuario {
     private  boolean es_doctor;
 
 
-    public Usuario(Long id, String contrasenia, String DNI_NIE) {
+    public Usuario(int  id, String contrasenia, String DNI_NIE) {
         this.id = id;
         Contrasenia = contrasenia;
         this.DNI_NIE = DNI_NIE;
@@ -44,7 +57,7 @@ public class Usuario {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int  id) {
         this.id = id;
     }
 
@@ -72,13 +85,7 @@ public class Usuario {
         Contrasenia = contrasenia;
     }
 
-    public String getCompanya_Aseguradora() {
-        return Companya_Aseguradora;
-    }
 
-    public void setCompanya_Aseguradora(String companya_Aseguradora) {
-        Companya_Aseguradora = companya_Aseguradora;
-    }
 
     public String getCentro_medico() {
         return centro_medico;
