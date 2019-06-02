@@ -16,14 +16,14 @@ import org.apache.http.params.HttpParams;
 
 public class DoctorRegisterActivity extends AppCompatActivity {
 
-    EditText name;
-    EditText surname;
+    EditText nombre;
+    EditText apellidos;
     EditText centro;
-    EditText dni;
-    EditText loc;
-    EditText mail;
+    EditText dniNie;
+    EditText localidad;
+    EditText correo;
     EditText telefono;
-    EditText numcolegiado;
+    EditText numColegiado;
     EditText contrasenia;
 
     TextView tvname;
@@ -51,14 +51,14 @@ public class DoctorRegisterActivity extends AppCompatActivity {
         setTitle("Registro de doctor");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        name =  findViewById(R.id.doctor_name);
-        surname =  findViewById(R.id.doctor_surname);
+        nombre =  findViewById(R.id.doctor_name);
+        apellidos =  findViewById(R.id.doctor_surname);
         centro =  findViewById(R.id.centro_medico);
-        dni =  findViewById(R.id.dni_nie_doctor);
-        loc =  findViewById(R.id.place_doctor);
-        mail =  findViewById(R.id.mail_doctor);
+        dniNie =  findViewById(R.id.dni_nie_doctor);
+        localidad =  findViewById(R.id.place_doctor);
+        correo =  findViewById(R.id.mail_doctor);
         telefono =  findViewById(R.id.phone_doctor);
-        numcolegiado =  findViewById(R.id.license_number);
+        numColegiado =  findViewById(R.id.license_number);
         contrasenia =  findViewById(R.id.pass_doctor);
 
         tvname = (TextView) findViewById(R.id.txt_doctorname);
@@ -80,12 +80,12 @@ public class DoctorRegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Usuario doctor = new Usuario();
-                doctor.setApellidos(name.getText().toString());
-                doctor.setNombre(surname.getText().toString());
+                doctor.setApellidos(nombre.getText().toString());
+                doctor.setNombre(apellidos.getText().toString());
                 doctor.setCentro_medico(centro.getText().toString());
-                doctor.setDNI_NIE(dni.getText().toString());
-                doctor.setLocalidad(loc.getText().toString());
-                doctor.setCorreo(mail.getText().toString());
+                doctor.setDNI_NIE(dniNie.getText().toString());
+                doctor.setLocalidad(localidad.getText().toString());
+                doctor.setCorreo(correo.getText().toString());
                 doctor.setTelefono(telefono.getText().toString());
                 doctor.setContrasenia(contrasenia.getText().toString());
 
