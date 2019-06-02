@@ -58,7 +58,8 @@ public class MainActivityPaciente extends AppCompatActivity {
 
                 List<Sintoma> sintomaList = new ArrayList<Sintoma>();
 
-                Intent intent = new Intent (v.getContext(), Controller.class);
+                Intent intent = new Intent (v.getContext(), ShowSintomaPacienteActivity.class);
+                //poner to do el sintoma en un json!!
 
                 //String jsonDoctor = gsonDoctor.toJson(doctor);
                 //intent.putExtra("jsonDoctor", jsonDoctor);
@@ -75,7 +76,7 @@ public class MainActivityPaciente extends AppCompatActivity {
                 //Usuario paciente = new Paciente();
 
 
-                Intent intent = new Intent (v.getContext(), ShowSintomaPacienteActivity.class);
+                Intent intent = new Intent (v.getContext(), AddSintomaPacienteActivity.class);
 
                 //String jsonsintoma = gsonsintoma.toJson(sintoma);
                 //intent.putExtra("jsonsintoma", jsonsintoma);

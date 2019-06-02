@@ -74,7 +74,7 @@ public class DoctorRegisterActivity extends AppCompatActivity {
         botonRegistroDoctor = findViewById(R.id.button_registro_doctor);
         btnDel = findViewById(R.id.button_eliminar_datos_doctor);
 
-        api=APIUtils.getAPIService();
+        //api=APIUtils.getAPIService();
 
         botonRegistroDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
