@@ -18,12 +18,9 @@ public class Usuario {
     private String  Telefono;
     private String  Correo ;
     private Date fechaNacimiento;
-    private Integer   	Id_Enfermedad;
-    private Integer   	id_lista_pacientes;
-    private Integer   	id_lista_doctores;
-    private Integer  id_lista_proximas_consultas;
-    private Integer   	id_lista_sintomas;
-    private Integer   	Num_colegiado ;
+    private int   	id_lista_pacientes;
+    private int   	id_lista_doctores;
+    private int   	Num_colegiado ;
     private String Enfermedad;
     private String Tratamiento;
     private String 	link_foto_perfil;
@@ -80,11 +77,6 @@ public class Usuario {
         CompaniaAseguradora = companiaAseguradora;
     }
 
-    public boolean isEs_doctor() {
-        return es_doctor;
-    }
-
-
 
 
     public String getCentro_medico() {
@@ -136,53 +128,8 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Integer getId_Enfermedad() {
-        return Id_Enfermedad;
-    }
 
-    public void setId_Enfermedad(Integer id_Enfermedad) {
-        Id_Enfermedad = id_Enfermedad;
-    }
 
-    public Integer getId_lista_pacientes() {
-        return id_lista_pacientes;
-    }
-
-    public void setId_lista_pacientes(Integer id_lista_pacientes) {
-        this.id_lista_pacientes = id_lista_pacientes;
-    }
-
-    public Integer getId_lista_doctores() {
-        return id_lista_doctores;
-    }
-
-    public void setId_lista_doctores(Integer id_lista_doctores) {
-        this.id_lista_doctores = id_lista_doctores;
-    }
-
-    public Integer getId_lista_proximas_consultas() {
-        return id_lista_proximas_consultas;
-    }
-
-    public void setId_lista_proximas_consultas(Integer id_lista_proximas_consultas) {
-        this.id_lista_proximas_consultas = id_lista_proximas_consultas;
-    }
-
-    public Integer getId_lista_sintomas() {
-        return id_lista_sintomas;
-    }
-
-    public void setId_lista_sintomas(Integer id_lista_sintomas) {
-        this.id_lista_sintomas = id_lista_sintomas;
-    }
-
-    public Integer getNum_colegiado() {
-        return Num_colegiado;
-    }
-
-    public void setNum_colegiado(Integer num_colegiado) {
-        Num_colegiado = num_colegiado;
-    }
 
     public String getEnfermedad() {
         return Enfermedad;
@@ -216,13 +163,35 @@ public class Usuario {
         this.fotoPaciente = fotoPaciente;
     }
 
-    public boolean isEs_doctor(boolean b) {
-        return es_doctor;
-    }
-
     public void setEs_doctor(boolean es_doctor) {
         this.es_doctor = es_doctor;
     }
 
+    public boolean isEs_doctor() {
+        return es_doctor;
+    }
 
+    public void setId_lista_pacientes(int id_lista_pacientes) {
+        this.id_lista_pacientes = id_lista_pacientes;
+    }
+
+    public void setId_lista_doctores(int id_lista_doctores) {
+        this.id_lista_doctores = id_lista_doctores;
+    }
+
+    public void setNum_colegiado(int num_colegiado) {
+        Num_colegiado = num_colegiado;
+    }
+
+    public int getNum_colegiado() {
+        return Num_colegiado;
+    }
+
+    public int getId_lista_pacientes() {
+        return id_lista_pacientes;
+    }
+
+    public int getId_lista_doctores() {
+        return id_lista_doctores;
+    }
 }

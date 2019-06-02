@@ -14,12 +14,12 @@ import com.google.gson.Gson;
 
 public class PacienteRegisterActivity extends AppCompatActivity {
 
-    EditText name;
-    EditText surname;
-    EditText compania;
-    EditText dni;
-    EditText loc;
-    EditText mail;
+    EditText nombre;
+    EditText apellidos;
+    EditText companiaAseguradora;
+    EditText dniNie;
+    EditText localidad;
+    EditText correo;
     EditText telefono;
     EditText contrasenia;
     
@@ -47,12 +47,12 @@ public class PacienteRegisterActivity extends AppCompatActivity {
         setTitle("Registro de paciente");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        name =  findViewById(R.id.paciente_name);
-        surname =  findViewById(R.id.paciente_surname);
-        compania =  findViewById(R.id.paciente_compania);
-        dni =  findViewById(R.id.dni_nie_paciente);
-        loc =  findViewById(R.id.place_paciente);
-        mail =  findViewById(R.id.mail_paciente);
+        nombre =  findViewById(R.id.paciente_name);
+        apellidos =  findViewById(R.id.paciente_surname);
+        companiaAseguradora =  findViewById(R.id.paciente_compania);
+        dniNie =  findViewById(R.id.dni_nie_paciente);
+        localidad =  findViewById(R.id.place_paciente);
+        correo =  findViewById(R.id.mail_paciente);
         telefono =  findViewById(R.id.phone_paciente);
         contrasenia =  findViewById(R.id.pass_paciente);
 
@@ -68,7 +68,7 @@ public class PacienteRegisterActivity extends AppCompatActivity {
         btnRegister = findViewById(R.id.button_registro_paciente);
         btnDel = findViewById(R.id.btn_delete_campos_paciente);
 
-        api=APIUtils.getAPIService();
+        //api=APIUtils.getAPIService();
 
 
         Intent intent = getIntent();
@@ -78,13 +78,14 @@ public class PacienteRegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Usuario paciente = new Usuario();
-                paciente.setApellidos(name.getText().toString());
-                paciente.setNombre(surname.getText().toString());
-                paciente.setCompanya_Aseguradora(compania.getText().toString());
-                paciente.setDNI_NIE(dni.getText().toString());
-                paciente.setLocalidad(loc.getText().toString());
-                paciente.setCorreo(mail.getText().toString());
+                paciente.setApellidos(nombre.getText().toString());
+                paciente.setNombre(apellidos.getText().toString());
+                paciente.setCompaniaAseguradora(companiaAseguradora.getText().toString());
+                paciente.setDNI_NIE(dniNie.getText().toString());
+                paciente.setLocalidad(localidad.getText().toString());
+                paciente.setCorreo(correo.getText().toString());
                 paciente.setTelefono(telefono.getText().toString());
+                paciente.setEs_doctor(false);
 
 
 

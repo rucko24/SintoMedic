@@ -28,8 +28,9 @@ public interface SintoMedicAPI {
         @GET("usuarios/{id}")
         Call<Usuario> listUser();
 
-
-        //AÑADIR USUARIOS
+        //CREAR USUARIO DOCTOR
+        @POST
+        Call<Usuario> createUser2(Usuario doctor);
 
         @POST("usuarios")
         @FormUrlEncoded
@@ -53,7 +54,6 @@ public interface SintoMedicAPI {
 
     @GET("sintomas")
     Call<List<Sintoma>> listSintomas();
-
 
 
 }

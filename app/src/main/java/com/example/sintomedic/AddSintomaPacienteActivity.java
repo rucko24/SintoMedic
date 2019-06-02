@@ -53,6 +53,7 @@ class AddSintomaPacienteActivity extends AppCompatActivity {
                 sintoma.setDescripcion(descripcion.getText().toString());
                 sintoma.setTemperatura(Float.valueOf(temp.getText().toString()));
                 sintoma.setPresionArterial(Float.valueOf(pres.getText().toString()));
+                sintoma.setPulso(puls.getText().toString());
 
 
 

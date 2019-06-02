@@ -14,6 +14,12 @@ import com.google.gson.Gson;
 
 import org.apache.http.params.HttpParams;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.example.sintomedic.RetrofitClient.retrofit;
+
 public class DoctorRegisterActivity extends AppCompatActivity {
 
     EditText nombre;
@@ -39,7 +45,7 @@ public class DoctorRegisterActivity extends AppCompatActivity {
     Button btnRegister;
     Button btnDel;
 
-    SintoMedicAPI api;
+
 
     Gson gsonDoctor = new Gson();
 
@@ -79,56 +85,69 @@ public class DoctorRegisterActivity extends AppCompatActivity {
         botonRegistroDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Usuario doctor = new Usuario();
-                doctor.setApellidos(nombre.getText().toString());
-                doctor.setNombre(apellidos.getText().toString());
-                doctor.setCentro_medico(centro.getText().toString());
-                doctor.setDNI_NIE(dniNie.getText().toString());
-                doctor.setLocalidad(localidad.getText().toString());
-                doctor.setCorreo(correo.getText().toString());
-                doctor.setTelefono(telefono.getText().toString());
-                doctor.setContrasenia(contrasenia.getText().toString());
-
-                Intent intent = new Intent (v.getContext(), Controller.class);
-
+                //METODO CREAR EL DOCTOR!!
+                createDoctor();
+                /*Intent intent = new Intent (v.getContext(), Controller.class);
                 String jsonDoctor = gsonDoctor.toJson(doctor);
-
                 //postData("http://your/login/url",jsonDoctor);
                 intent.putExtra("jsonDoctor", jsonDoctor);
-                startActivity(intent);
-
+                startActivity(intent);*/
             }
         });
 
 
     }
-    //METODO PARA POSTEAR EN SPRING
+
+    private void createDoctor() {
+
+            final Usuario doctor = new Usuario();
+            doctor.setApellidos(nombre.getText().toString());
+            doctor.setNombre(apellidos.getText().toString());
+            doctor.setCentro_medico(centro.getText().toString());
+            doctor.setDNI_NIE(dniNie.getText().toString());
+            doctor.setLocalidad(localidad.getText().toString());
+            doctor.setCorreo(correo.getText().toString());
+            doctor.setTelefono(telefono.getText().toString());
+            doctor.setContrasenia(contrasenia.getText().toString());
+            doctor.setEs_doctor(true);//provisionalmente se deberia setear a False!!
+            //COMO LE PONGO EL ID IGUAL AL ID AUTOGENERADO??
+            doctor.setId_lista_doctores(doctor.getId());
+            doctor.setId_lista_pacientes(doctor.getId());
+
+            SintoMedicAPI api=retrofit.create(SintoMedicAPI.class);
+            Call<Usuario> usuarios = api.createUser2(doctor);
+            usuarios.enqueue(new Callback<Usuario>() {
+
+                @Override
+                public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                    if(!response.isSuccessful()) {
+                        System.out.print("Response error " + response.code());
+                    }
+
+                    final Usuario usuarioResponse = response.body();
+                    final StringBuilder sb = new StringBuilder();
+                    sb.append("" + usuarioResponse.getNombre());
+                    sb.append(usuarioResponse.getApellidos());
+                    sb.append(usuarioResponse.getCorreo());
+                    sb.append(usuarioResponse.getDNI_NIE());
+                    sb.append(usuarioResponse.getNum_colegiado());
+                    sb.append(usuarioResponse.getId_lista_pacientes());
+                    sb.append(usuarioResponse.getId_lista_pacientes());
+                    sb.append(usuarioResponse.isEs_doctor());
+                    sb.append(usuarioResponse.getLink_foto_perfil());
+                    sb.append(usuarioResponse.getContrasenia());
+
+                }
+
+                @Override
+                public void onFailure(Call<Usuario> call, Throwable t) {
+                    System.out.println("Error failure: " + t.getMessage());
+                }
+            });
 
 
-   /* public void addListenerOnButton() {
+    }
 
-        botonRegistroDoctor =  findViewById(R.id.button_registro_doctor);
-        botonRegistroDoctor.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                //Usuario usuario=usuario.get;
-
-                EditText name = findViewById(R.id.doctor_name);
-                EditText surname = findViewById(R.id.doctor_surname);
-                EditText jobcenter = findViewById(R.id.doctor_compania);
-                EditText dni_nie = findViewById(R.id.dni_nie_doctor);
-                EditText place = findViewById(R.id.place_doctor);
-                EditText mail = findViewById(R.id.mail_doctor);
-                EditText phone = findViewById(R.id.phone_doctor);
-                
-*//*
-                Intent intentDoctor = new Intent(view.getContext(),  SendRegisterData.class);
-                intentDoctor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//sirve para algo?
-                startActivityForResult(intentDoctor, 0);*//*
-
-            }
-        });
-    }*/
 
 
 }
