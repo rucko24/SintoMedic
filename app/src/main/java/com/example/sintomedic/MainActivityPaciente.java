@@ -75,7 +75,7 @@ public class MainActivityPaciente extends AppCompatActivity {
                 //Usuario paciente = new Paciente();
 
 
-                Intent intent = new Intent (v.getContext(), ShowSintomasPacienteActivity.class);
+                Intent intent = new Intent (v.getContext(), ShowSintomaPacienteActivity.class);
 
                 //String jsonsintoma = gsonsintoma.toJson(sintoma);
                 //intent.putExtra("jsonsintoma", jsonsintoma);

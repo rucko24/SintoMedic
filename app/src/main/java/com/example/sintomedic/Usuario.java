@@ -9,19 +9,6 @@ public class Usuario {
     private String Nombre;
     private String Apellidos;
     private String Contrasenia;
-
-    public String getCompaniaAseguradora() {
-        return CompaniaAseguradora;
-    }
-
-    public void setCompaniaAseguradora(String companiaAseguradora) {
-        CompaniaAseguradora = companiaAseguradora;
-    }
-
-    public boolean isEs_doctor() {
-        return es_doctor;
-    }
-
     private String CompaniaAseguradora;
     private String centro_medico;
     private String DNI_NIE;
@@ -84,6 +71,19 @@ public class Usuario {
     public void setContrasenia(String contrasenia) {
         Contrasenia = contrasenia;
     }
+
+    public String getCompaniaAseguradora() {
+        return CompaniaAseguradora;
+    }
+
+    public void setCompaniaAseguradora(String companiaAseguradora) {
+        CompaniaAseguradora = companiaAseguradora;
+    }
+
+    public boolean isEs_doctor() {
+        return es_doctor;
+    }
+
 
 
 

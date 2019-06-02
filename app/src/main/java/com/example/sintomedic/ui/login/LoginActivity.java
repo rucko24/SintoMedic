@@ -28,12 +28,7 @@ import com.example.sintomedic.MainActivityDoctor;
 import com.example.sintomedic.MainActivityPaciente;
 import com.example.sintomedic.PacienteRegisterActivity;
 import com.example.sintomedic.R;
-import com.example.sintomedic.UnsafeOkHttpClient;
 import com.example.sintomedic.Usuario;
-
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity implements AsyncResponse {
     //MyAsyncTask asyncTask =new MyAsyncTask();
@@ -93,7 +88,7 @@ private ProgressBar loadingProgressBar;
         passwordEditText = findViewById(R.id.password);
         
         checkBoxEditText = findViewById(R.id.checkBox);
-        loginButton = findViewById(R.id.login);
+        loginButton = findViewById(R.id.button_login);
         registerPacienteButton = findViewById(R.id.regPacienteButton);
         registerDoctorButton = findViewById(R.id.regDoctorButton);
         loadingProgressBar = findViewById(R.id.loading);
@@ -105,7 +100,7 @@ private ProgressBar loadingProgressBar;
         passwordEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                if (id == R.id.button_login || id == EditorInfo.IME_NULL) {
                     attemptLogin();
                     return true;
                 }
@@ -287,6 +282,7 @@ private ProgressBar loadingProgressBar;
             case 4:
                 showLoginError(getString(R.string.error_server));
                 break;
+
         }
     }*/
 

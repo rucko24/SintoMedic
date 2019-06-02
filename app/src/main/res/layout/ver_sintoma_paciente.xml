@@ -23,7 +23,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:gravity="start|top"
@@ -41,48 +41,37 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/txt_temp_consulta"
+        android:id="@+id/txt_temp_ver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="Temperatura"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/temperatura_ver"
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <TextView
-        android:id="@+id/txt_presion_consulta"
+        android:id="@+id/txt_presion_ver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:text="Tensión arterial"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_temp_consulta" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/txt_temp_ver" />
 
     <TextView
-        android:id="@+id/txt_pulso_consulta"
+        android:id="@+id/txt_pulso_ver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:text="Pulso"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_presion_consulta" />
-
-    <TextView
-        android:id="@+id/txt_doctor_consulta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="Doctor"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_pulso_consulta" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/txt_presion_ver" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline8"
@@ -92,51 +81,42 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/temperatura_consulta"
+        android:id="@+id/temperatura_ver"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/txt_temp_consulta"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_temp_ver"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline8" />
 
     <TextView
-        android:id="@+id/tension_consulta"
+        android:id="@+id/tension_ver"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/txt_presion_consulta"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_presion_ver"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline8" />
 
     <TextView
-        android:id="@+id/pulso_consulta"
+        android:id="@+id/pulso_ver"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/txt_pulso_consulta"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txt_pulso_ver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline8" />
 
-    <TextView
-        android:id="@+id/doctor_consulta"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/txt_doctor_consulta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8" />
+
+
 
 </android.support.constraint.ConstraintLayout>

@@ -31,8 +31,8 @@ public class Controller    {
             .build();
     SintoMedicAPI api=retrofit.create(SintoMedicAPI.class);
     //LOGIN
-    public void login(){
-        Call<Usuario> call = api.loginUser();
+    public void login( String dni_nie, String pass){
+        Call<Usuario> call = api.loginUser(dni_nie,pass);
         call.enqueue(new Callback<Usuario>() {
             @SuppressLint("LongLogTag")
             @Override
@@ -40,11 +40,11 @@ public class Controller    {
                 if(response.isSuccessful()){
                     Usuario usuario = response.body();
                     if(usuario!=null) {
-                        Log.d("CONTROLLER", usuario.getNombre());
+                        Log.d("CONTROLLER nombre user:", usuario.getNombre());
                         handler.onResponseLogin(usuario);
                     }
                 }else{
-                    Log.d("error en CONTROLLER usuario", response.errorBody().toString());
+                    Log.d("error en CONTROLLER login usuario", response.errorBody().toString());
                 }
 
 

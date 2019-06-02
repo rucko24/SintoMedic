@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sintomedic.R;
 import com.example.sintomedic.Sintoma;
@@ -29,17 +30,34 @@ public class SintomaAdapter extends RecyclerView.Adapter<SintomaAdapter.SintomaV
     }
 
 
-
     public class SintomaViewHolder extends RecyclerView.ViewHolder {
         TextView txtFecha;
         TextView txtHora;
-        Button txtVerSintoma;
+        TextView txtTagFecha;
+        TextView txtTagHora;
+        Button buttonVerSintoma;
 
         public SintomaViewHolder(@NonNull View view) {
             super(view);
             txtFecha = view.findViewById(R.id.fecha_sintoma_paciente);
             txtHora = view.findViewById(R.id.hora_sintoma_pacientete);
-            txtVerSintoma = view.findViewById(R.id.button_ver_descripcion_sintoma);
+
+            txtTagFecha=view.findViewById(R.id.tag_fecha_sintoma_paciente);
+            txtTagHora=view.findViewById(R.id.tag_hora_sintoma_paciente);
+
+            buttonVerSintoma = view.findViewById(R.id.button_ver_descripcion_sintoma);
+
+            buttonVerSintoma.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Sintoma sintoma=sintomasList.get(getAdapterPosition());
+                    //tenemos el sintoma ya, ahora lo pasamos a json y lo enviamos a donde sea
+
+
+
+                }
+            });
 
 
         }

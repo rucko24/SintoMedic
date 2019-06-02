@@ -43,6 +43,8 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
         ImageView imgThumbnail;
         TextView txtName;
         TextView txtSurname;
+
+
         Button txtFicha;
         Button txtEliminar;
 
@@ -79,6 +81,8 @@ public class PacienteAdapter extends RecyclerView.Adapter<PacienteAdapter.Pacien
             txtEliminar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    //pedir a bb datos que elimine el paciente!!
                     Intent intent = new Intent (context, EliminarPacienteActivity.class);
                     Usuario paciente = pacientesList.get(getAdapterPosition());
                     int pacienteID=paciente.getId();

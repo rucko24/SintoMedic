@@ -17,11 +17,20 @@ import java.util.List;
 
 public class ShowFichaPacienteActivity extends AppCompatActivity implements Controller.ServerResponse {
     private ImageView imagenPaciente;
+
     private TextView txtNombre;
     private TextView txtApellidos;
+
+
     private TextView txtFechaNacimiento;
     private TextView txtCompania;
+    private TextView txtTagCompania;
+    private TextView txtTratamiento;
+    private TextView txtTagTratamiento;
+
     private TextView txtEnfermedades;
+    private TextView txtTagEnfermedades;
+
 
     SintomaAdapter adapter;
     Gson gson = new Gson();
@@ -58,9 +67,26 @@ public class ShowFichaPacienteActivity extends AppCompatActivity implements Cont
         txtApellidos=findViewById(R.id.apellido_ficha_paciente);
         txtFechaNacimiento=findViewById(R.id.nacimiento_fecha_paciente);
         txtCompania=findViewById(R.id.txt_compania_paciente);
+        txtTratamiento=findViewById(R.id.txt_tratamiento_paciente);
+        txtEnfermedades=findViewById(R.id.txt_enfermedades_paciente);
+
+        txtTagCompania=findViewById(R.id.txt_tag_compania_paciente);
+        txtTagEnfermedades=findViewById(R.id.txt_tag_enfermedades_paciente);
+        txtTagTratamiento=findViewById(R.id.txt_tag_tratamiento);
+
+        txtNombre.setText(paciente.getNombre());
+        txtApellidos.setText(paciente.getApellidos());
+        txtFechaNacimiento.setText((CharSequence) paciente.getFechaNacimiento());
+        txtCompania.setText(paciente.getCompaniaAseguradora());
+        txtTratamiento.setText(paciente.getTratamiento());
+        txtEnfermedades.setText(paciente.getEnfermedad());
 
 
     }
+
+
+
+
 
     @Override
     public void onResponseUsuario(Usuario paciente) {
@@ -69,10 +95,12 @@ public class ShowFichaPacienteActivity extends AppCompatActivity implements Cont
         /*GlideApp.with(context)
                 .load(usuario.getLink_foto_perfil())
                 .into(usuario.)*/;
+
+        /*
         txtNombre.setText(paciente.getNombre());
         txtApellidos.setText(paciente.getApellidos());
         txtFechaNacimiento.setText((CharSequence) paciente.getFechaNacimiento());
-        txtCompania.setText(paciente.getCompanya_Aseguradora());
+        txtCompania.setText(paciente.getCompaniaAseguradora());*/
 
 
 

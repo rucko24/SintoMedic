@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".VerFichaSintoma"></activity>
-        <!-- LOGIN ACTIVITY -->
+        <activity android:name=".ui.login.LoginCustomActivity" />
+        <activity android:name=".VerFichaSintoma" /> <!-- LOGIN ACTIVITY -->
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" /> <!-- MAIN ACTIVITies -->
