@@ -42,8 +42,8 @@ public class ShowSintomaPacienteActivity  extends AppCompatActivity {
         puls=findViewById(R.id.pulso_ver);
 
         descripcion.setText(sintoma.getDescripcion());
-        temp.setText(sintoma.getTemperatura());
-        pres.setText(sintoma.getPresionArterial());
+        temp.setText(String.valueOf(sintoma.getTemperatura()));
+        pres.setText(String.valueOf(sintoma.getPresionArterial()));
         puls.setText(sintoma.getPulso());
 
 
