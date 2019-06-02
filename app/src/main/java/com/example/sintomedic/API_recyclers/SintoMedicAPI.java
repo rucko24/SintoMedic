@@ -29,7 +29,7 @@ public interface SintoMedicAPI {
         Call<Usuario> listUser();
 
         //CREAR USUARIO DOCTOR
-        @POST
+        @POST("usuarios")
         Call<Usuario> createUser2(Usuario doctor);
 
         @POST("usuarios")

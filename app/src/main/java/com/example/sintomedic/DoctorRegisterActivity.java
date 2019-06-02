@@ -12,7 +12,7 @@ import com.example.sintomedic.API_recyclers.SintoMedicAPI;
 import com.example.sintomedic.Controllers.Controller;
 import com.google.gson.Gson;
 
-import org.apache.http.params.HttpParams;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,14 +42,11 @@ public class DoctorRegisterActivity extends AppCompatActivity {
     TextView tvnumcolegiado;
     TextView tvcontrasenia;
 
-    Button btnRegister;
+    Button botonRegistroDoctor;
     Button btnDel;
-
-
-
     Gson gsonDoctor = new Gson();
 
-    Button botonRegistroDoctor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +91,6 @@ public class DoctorRegisterActivity extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-
 
     }
 
