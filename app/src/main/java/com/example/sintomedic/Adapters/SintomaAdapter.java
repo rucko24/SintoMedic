@@ -1,6 +1,7 @@
 package com.example.sintomedic.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sintomedic.R;
+import com.example.sintomedic.ShowFichaPacienteActivity;
+import com.example.sintomedic.ShowSintomaPacienteActivity;
 import com.example.sintomedic.Sintoma;
 import com.google.gson.Gson;
 
@@ -50,9 +53,13 @@ public class SintomaAdapter extends RecyclerView.Adapter<SintomaAdapter.SintomaV
             buttonVerSintoma.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent intent = new Intent (context, ShowSintomaPacienteActivity.class);
 
                     Sintoma sintoma=sintomasList.get(getAdapterPosition());
                     //tenemos el sintoma ya, ahora lo pasamos a json y lo enviamos a donde sea
+                    String jsonSintoma = gsonPaciente.toJson(sintoma);
+                    intent.putExtra("jsonSintoma", jsonSintoma);
+                    startActivity(intent);
 
 
 
@@ -61,6 +68,9 @@ public class SintomaAdapter extends RecyclerView.Adapter<SintomaAdapter.SintomaV
 
 
         }
+    }
+
+    private void startActivity(Intent intent) {
     }
 
     public void setData(List<Sintoma> newList){

@@ -8,8 +8,8 @@ public class Sintoma {
     private Integer IdPaciente;
     private Integer  	IdDoctorEnviado;
     private java.sql.Date FechaHora ;
-    private Integer  Temperatura ;
-    private String  PresionArterial  ;
+    private Float  Temperatura ;
+    private Float  PresionArterial  ;
     private String  Pulso  ;
 
     public String getDescripcion() {
@@ -44,19 +44,19 @@ public class Sintoma {
         FechaHora = fechaHora;
     }
 
-    public Integer getTemperatura() {
+    public Float getTemperatura() {
         return Temperatura;
     }
 
-    public void setTemperatura(Integer temperatura) {
+    public void setTemperatura(Float temperatura) {
         Temperatura = temperatura;
     }
 
-    public String getPresionArterial() {
+    public Float getPresionArterial() {
         return PresionArterial;
     }
 
-    public void setPresionArterial(String presionArterial) {
+    public void setPresionArterial(Float presionArterial) {
         PresionArterial = presionArterial;
     }
 
@@ -70,7 +70,7 @@ public class Sintoma {
 
 
 
-    public Sintoma(String descripcion, Integer idPaciente, Integer idDoctorEnviado, Date fechaHora, Integer temperatura, String presionArterial, String pulso) {
+    public Sintoma(String descripcion, Integer idPaciente, Integer idDoctorEnviado, Date fechaHora, Float temperatura, Float presionArterial, String pulso) {
         Descripcion = descripcion;
         IdPaciente = idPaciente;
         IdDoctorEnviado = idDoctorEnviado;
