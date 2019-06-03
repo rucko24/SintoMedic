@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.sintomedic.ui.login.LoginActivity;
+import com.example.sintomedic.ui.login.LoginCustomActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // Redirección al Login
         if (true) {
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, LoginCustomActivity.class));
             finish();
             return;
         }

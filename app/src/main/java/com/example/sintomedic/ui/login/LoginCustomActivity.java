@@ -84,9 +84,12 @@ public class LoginCustomActivity extends AppCompatActivity implements AsyncRespo
         passwordEditText = findViewById(R.id.password);
 
         checkBoxEditText = findViewById(R.id.checkBox);
+
         loginButton = findViewById(R.id.button_login);
+
         registerPacienteButton = findViewById(R.id.regPacienteButton);
         registerDoctorButton = findViewById(R.id.regDoctorButton);
+
         loadingProgressBar = findViewById(R.id.loading);
 
 

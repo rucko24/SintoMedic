@@ -43,6 +43,7 @@ class AddSintomaPacienteActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // SOLO RECIBIR EL ID DE PACIENTE PARA LUEGO AÑADIR SINTOMA CON DICHO ID
 
         //HABRA QUE RECIBIR LOS DATOS , EL PACIENTE y intoma entero
         Intent intent = getIntent();

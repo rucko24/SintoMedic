@@ -182,23 +182,26 @@ public class Controller    {
 
     //POSTEAR SINTOMAS DE 1 PACIENTE
     public void loadSintomas(){
-        Call<List<Sintoma>> call = api.createSintoma();
-        call.enqueue(new Callback<List<Sintoma>>() {
+        Sintoma sintoma = null;
+        Call<Sintoma> call = api.createSintoma(sintoma);
+        call.enqueue(new Callback<Sintoma>() {
             @SuppressLint("LongLogTag")
             @Override
-            public void onResponse(Call<List<Sintoma>> call, Response<List<Sintoma>> response) {
+            public void onResponse(Call<Sintoma> call, Response<Sintoma> response) {
                 if(response.isSuccessful()){
-                    List<Sintoma> sintomas = response.body();
-                    if(sintomas.size()>0) {
-                        Log.d("load sintomas", sintomas.get(0).getDescripcion());
-                        handler.onResponseSintomas(sintomas);
+                    Sintoma sintomas = response.body();
+                    if(sintomas!=null) {
+                        Log.d("load sintomas", sintomas.getDescripcion());
+                        handler.onResponseSintomas((List<Sintoma>) sintomas);
                     }
                 }else{
                     Log.d("Error load Sintomas", response.errorBody().toString());
                 }
             }
+           
+
             @Override
-            public void onFailure(Call<List<Sintoma>> call, Throwable t) {t.printStackTrace();
+            public void onFailure(Call<Sintoma> call, Throwable t) {t.printStackTrace();
             }
         });
 

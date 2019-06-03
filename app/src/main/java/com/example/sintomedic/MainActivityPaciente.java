@@ -75,6 +75,8 @@ public class MainActivityPaciente extends AppCompatActivity {
                 //saber a que usuario se POSTEA
                 //Usuario paciente = new Paciente();
 
+                //enviar el intent con el id de paciente!!!!
+
                 Intent intent = new Intent (v.getContext(), AddSintomaPacienteActivity.class);
 
                 //String jsonsintoma = gsonsintoma.toJson(sintoma);
@@ -83,14 +85,13 @@ public class MainActivityPaciente extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
+        //RECIBIR ID PACIENTE!!!
+        // ENVIAR INTENT DEL ID DEL PACIENTE!!!
 
 
     }
+
+
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.paciente_menu, menu);
         return true;

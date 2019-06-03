@@ -7,7 +7,6 @@ public class Sintoma {
     private int id;
     private String Descripcion;
     private int IdPaciente;
-    private int  	IdDoctorEnviado;
     private java.sql.Date FechaHora ;
     private Float  Temperatura ;
     private Float  PresionArterial  ;
@@ -66,14 +65,6 @@ public class Sintoma {
 
     public void setIdPaciente(int idPaciente) {
         IdPaciente = idPaciente;
-    }
-
-    public int getIdDoctorEnviado() {
-        return IdDoctorEnviado;
-    }
-
-    public void setIdDoctorEnviado(int idDoctorEnviado) {
-        IdDoctorEnviado = idDoctorEnviado;
     }
 
     public Sintoma(int id, int idPaciente) {
