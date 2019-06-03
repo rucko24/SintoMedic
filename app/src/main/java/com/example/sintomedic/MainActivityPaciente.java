@@ -49,7 +49,7 @@ public class MainActivityPaciente extends AppCompatActivity {
         button_ver_sintomas =  findViewById(R.id.button_ver_sintomas_activity_paciente);
         button_add_sympton =  findViewById(R.id.button_add_sympton_activity_paciente);
 
-        api=APIUtils.getAPIService();
+        //api=APIUtils.getAPIService();
 
         button_ver_sintomas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,6 @@ public class MainActivityPaciente extends AppCompatActivity {
             public void onClick(View v) {
                 //saber a que usuario se POSTEA
                 //Usuario paciente = new Paciente();
-
 
                 Intent intent = new Intent (v.getContext(), AddSintomaPacienteActivity.class);
 

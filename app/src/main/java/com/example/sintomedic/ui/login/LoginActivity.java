@@ -396,7 +396,7 @@ private ProgressBar loadingProgressBar;
         Intent intent = null;
         Usuario user = null;
         // si no es doctor
-        if(user.isEs_doctor(false)){
+        if(!user.isEs_doctor()){
              intent = new Intent(this, MainActivityPaciente.class);
         }else {
              intent = new Intent(this, MainActivityDoctor.class);

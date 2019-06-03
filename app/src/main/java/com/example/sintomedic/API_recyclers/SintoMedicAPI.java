@@ -50,7 +50,7 @@ public interface SintoMedicAPI {
     // ################# PARA SINTOMAS##########################
 
     @POST("sintomas")// envia nuevo sintoma a base
-    Call<List<Sintoma>> createSintoma();
+    Call<Sintoma> createSintoma(Sintoma sintoma);
 
     @GET("sintomas")
     Call<List<Sintoma>> listSintomas();

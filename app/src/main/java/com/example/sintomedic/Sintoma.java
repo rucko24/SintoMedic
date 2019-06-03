@@ -4,9 +4,10 @@ import java.sql.Date;
 
 public class Sintoma {
 
+    private int id;
     private String Descripcion;
-    private Integer IdPaciente;
-    private Integer  	IdDoctorEnviado;
+    private int IdPaciente;
+    private int  	IdDoctorEnviado;
     private java.sql.Date FechaHora ;
     private Float  Temperatura ;
     private Float  PresionArterial  ;
@@ -17,24 +18,9 @@ public class Sintoma {
     }
 
     public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
-    }
+        Descripcion = descripcion;    }
 
-    public Integer getIdPaciente() {
-        return IdPaciente;
-    }
 
-    public void setIdPaciente(Integer idPaciente) {
-        IdPaciente = idPaciente;
-    }
-
-    public Integer getIdDoctorEnviado() {
-        return IdDoctorEnviado;
-    }
-
-    public void setIdDoctorEnviado(Integer idDoctorEnviado) {
-        IdDoctorEnviado = idDoctorEnviado;
-    }
 
     public Date getFechaHora() {
         return FechaHora;
@@ -68,16 +54,31 @@ public class Sintoma {
         Pulso = pulso;
     }
 
+    public int getId() {
+        return id;
+    }
 
 
-    public Sintoma(String descripcion, Integer idPaciente, Integer idDoctorEnviado, Date fechaHora, Float temperatura, Float presionArterial, String pulso) {
-        Descripcion = descripcion;
+
+    public int getIdPaciente() {
+        return IdPaciente;
+    }
+
+    public void setIdPaciente(int idPaciente) {
         IdPaciente = idPaciente;
+    }
+
+    public int getIdDoctorEnviado() {
+        return IdDoctorEnviado;
+    }
+
+    public void setIdDoctorEnviado(int idDoctorEnviado) {
         IdDoctorEnviado = idDoctorEnviado;
-        FechaHora = fechaHora;
-        Temperatura = temperatura;
-        PresionArterial = presionArterial;
-        Pulso = pulso;
+    }
+
+    public Sintoma(int id, int idPaciente) {
+        this.id = id;
+        IdPaciente = idPaciente;
     }
 
     public Sintoma(){

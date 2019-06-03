@@ -8,20 +8,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.sintomedic.API_recyclers.SintoMedicAPI;
 import com.google.gson.Gson;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static com.example.sintomedic.RetrofitClient.retrofit;
 
 class AddSintomaPacienteActivity extends AppCompatActivity {
 
-
+    private Long id;
     private EditText descripcion;
-    private EditText temp;
-    private EditText pres;
-    private EditText puls;
+    private EditText temperatura;
+    private int idPaciente;
+    private int idDoctorEnviado;
+    private EditText presionArterial;
+    private EditText pulso;
     private Button sendSintomaButton;
+
+    private Date fechaHora;
 
     Gson gson = new Gson();
 
@@ -35,47 +44,63 @@ class AddSintomaPacienteActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        //HABRA QUE RECIBIR LOS DATOS , EL PACIENTE ENTERO
+        //HABRA QUE RECIBIR LOS DATOS , EL PACIENTE y intoma entero
         Intent intent = getIntent();
         String jsonSintoma = intent.getStringExtra("jsonSintoma");
-        //Creamos un nuevo Paciente a partir de json
+        //Creamos un nuevo Sintoma a partir de json
         final Sintoma sintoma= gson.fromJson(jsonSintoma, Sintoma.class);//YA TENEMOS El sintoma
 
         descripcion=findViewById(R.id.descripcion_simtoma_toadd);
-        temp=findViewById(R.id.temperatura_send);
-        pres=findViewById(R.id.tension_send);
-        puls=findViewById(R.id.pulso_send);
+        temperatura=findViewById(R.id.temperatura_send);
+        presionArterial=findViewById(R.id.tension_send);
+        pulso=findViewById(R.id.pulso_send);
         sendSintomaButton=findViewById(R.id.button_send_sintoma);
 
         sendSintomaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sintoma.setDescripcion(descripcion.getText().toString());
-                sintoma.setTemperatura(Float.valueOf(temp.getText().toString()));
-                sintoma.setPresionArterial(Float.valueOf(pres.getText().toString()));
-                sintoma.setPulso(puls.getText().toString());
-
-
-
-
-
+                createSintoma();
             }
         });
 
+    }
+
+    private void createSintoma() {
+
+        final Sintoma sintoma = new Sintoma();
+        sintoma.setDescripcion(descripcion.getText().toString());
+        sintoma.setTemperatura(Float.valueOf(temperatura.getText().toString()));
+        sintoma.setPresionArterial(Float.valueOf(presionArterial.getText().toString()));
+        sintoma.setPulso(pulso.getText().toString());
+        //sintoma.setIdPaciente();
 
 
+        SintoMedicAPI api=retrofit.create(SintoMedicAPI.class);
+        Call<Sintoma> call = api.createSintoma(sintoma);
+        call.enqueue(new Callback<Sintoma>() {
+
+            @Override
+            public void onResponse(Call<Sintoma> call, Response<Sintoma> response) {
+                if(!response.isSuccessful()) {
+                    System.out.print("Response error " + response.code());
+                }
+                final Sintoma sintomaResponse = response.body();
+                final StringBuilder sb = new StringBuilder();
+                sb.append("" + sintomaResponse.getDescripcion());
+                sb.append(sintomaResponse.getTemperatura());
+                sb.append(sintomaResponse.getPresionArterial());
+                sb.append(sintomaResponse.getPulso());
+                sb.append(sintomaResponse.getId());
 
 
+            }
 
-
-
-
-
-
-
-
-
-
+            @Override
+            public void onFailure(Call<Sintoma> call, Throwable t) {
+                System.out.println("Error failure: " + t.getMessage());
+            }
+        });
+        
     }
 
 }
