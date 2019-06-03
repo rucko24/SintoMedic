@@ -8,6 +8,6 @@ public class VerFichaSintoma extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ver_ficha_sintoma);
+        //setContentView(R.layout.activity_ver_ficha_sintoma);
     }
 }

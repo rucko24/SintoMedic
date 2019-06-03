@@ -3,6 +3,9 @@ package com.example.sintomedic;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/*
+Ya api utils hacias esto
+ */
 public class RetrofitClient {
     public static Retrofit retrofit = null;
 
